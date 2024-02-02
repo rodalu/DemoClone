@@ -3,8 +3,10 @@ on: [push]
 jobs:
  runs-on: ubuntu-latest
  steps:
-    - name: Check out my other private repo
-         uses: actions/checkout@master
-          with:
-          repository: rodalu/apiops
-          token: ${{ secrets.my_pat }}
+ - name: rodalu/apiops PUBLIC repository
+  uses: rodalu/apiops-action@v2.3
+  with:
+    depth: 1
+    branch: 'main'
+    owner: 'rodalu'
+    repository: 'apiops'
