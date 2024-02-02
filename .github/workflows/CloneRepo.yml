@@ -17,8 +17,8 @@ jobs:
     - name: Clone apiops repository
       uses: actions/checkout@v2
       with:
-        repository: rodalu/newapiops
-        path: rodalu/apiops
+        repository: rodalu/apiops
+        path: rodalu/newapiops
         ref: 2.x
 
     - name: …
