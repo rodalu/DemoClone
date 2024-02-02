@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: rodalu/apiops
-        path: resources/docs/2.x
+        path: rodalu/apiops
         ref: 2.x
 
     - name: …
