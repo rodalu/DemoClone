@@ -1,7 +1,6 @@
 name: TestRepo
 
-on:
-  create
+on: [push, pull_request]
 
 env:
     GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
@@ -51,3 +50,7 @@ jobs:
           echo 'ISSUE_STATE='
            $(jq '.data.repository.issue.state' project_data.json) 
             >> $GITHUB_ENV
+
+
+            - name: …
+            run: …
