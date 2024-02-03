@@ -1,6 +1,7 @@
 name: TestRepo
 
-on: [push, pull_request]
+on: 
+  push:
 
 env:
     GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
