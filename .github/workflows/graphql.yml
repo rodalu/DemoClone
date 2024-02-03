@@ -1,8 +1,10 @@
 name: GraphQL 
-on: create ## branch or tag being created trigger
+on: 
+  workflow_dispatch:
+  push:
 
 jobs: ## jobs to run when triggered
-  echo-branch-name: ## name of a job
+  build:
     runs-on: ubuntu-latest ## which machine the job runs on
     steps: ## steps to run
       - name: Step One ## name of a step

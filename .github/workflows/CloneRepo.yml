@@ -1,6 +1,7 @@
 name: CloneRepo
 
 on: 
+  workflow_dispatch:
   push:
 
 jobs:  
@@ -18,8 +19,8 @@ jobs:
     - name: Clone apiops repository
       uses: actions/checkout@v2
       with:
-        repository: rodalu/apiops
-        path: rodalu/newapiops
+        repository: rodalu/apiops2
+        path: rodalu/apiops
         ref: 2.x
 
     - name: …
