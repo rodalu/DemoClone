@@ -1,43 +1,53 @@
+name: New Branch Created 
+
 on:
-    pull_request:
-  
-  env:
-    TF_CLOUD_ORGANIZATION: "rodalu"
-    TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-    TF_WORKSPACE: "learn-terraform-github-actions"
+  create
 
+env:
+    GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+    ORGANIZATION: rodalu
+    REPO: DemoClone
+    
+jobs:
+  Check-Branch-Name:
+    runs-on: ubuntu-latest
+    outputs:
+      issue_num: ${{ steps.step1.outputs.issue_num }}
+      tracked: ${{ steps.step1.outputs.tracked }}
+    steps:
+      - name: Get Created Issue Number
+        id: step1
+        run: |
+          branch_name=`echo '${{ github.event.ref }}'`
+          issue_num=`echo ${branch_name#*#} | egrep -o '^[^/]+'`
+          re='^[0-9]+$'
+          if ! [[ $issue_num =~ $re ]] ; then
+            echo "::set-output name=tracked::false"
+          else
+            echo "::set-output name=tracked::true"
+          fi
+          echo "::set-output name=issue_num::$issue_num"
 
-    jobs:
-        terraform:
-          if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
-          name: "Terraform Plan"
-          runs-on: ubuntu-latest
-          permissions:
-            contents: read
-            pull-requests: write
-          steps:
-## ...
-- name: Checkout
-  uses: actions/checkout@v3
-## ...
-
-        resource "rodalu" "apiops" 
-        {
-        name        = "apiops2"
-        description = "My awesome codebase"
-
-        visibility = "public"
-
-        template {
-            owner                = "github"
-            repository           = "terraform-template-module"
-            include_all_branches = true
-        }
-        }
-        - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
-
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false
+  Add-Linked-Issue-To-Project:
+    needs: Check-Branch-Name
+    if: needs.Check-Branch-Name.outputs.tracked == 'true'
+    env: 
+      ISSUE_NUM: ${{ needs.Check-Branch-Name.outputs.issue_num}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Issue ${{ env.ISSUE_NUM }} ID and State
+        run: |
+          gh api graphql -f query='query FindIssueID {
+            repository(owner:"${{ env.ORGANIZATION }}",name:"${{ env.REPO }}") {
+                issue(number:${{ env.ISSUE_NUM }}) {
+                      id,
+                      state
+                      }
+                    }
+                  }' > project_data.json
+          echo 'ISSUE_ID='
+           $(jq '.data.repository.issue.id' project_data.json) 
+            >> $GITHUB_ENV
+          echo 'ISSUE_STATE='
+           $(jq '.data.repository.issue.state' project_data.json) 
+            >> $GITHUB_ENV
