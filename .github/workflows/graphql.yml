@@ -1,4 +1,4 @@
-name:GraphQL 
+name: GraphQL 
 on: create ## branch or tag being created trigger
 jobs: ## jobs to run when triggered
   echo-branch-name: ## name of a job
