@@ -15,4 +15,3 @@ jobs: ## jobs to run when triggered
          with:
             query: samples/repository-static.query.yaml 
             logLevel: debug
-            

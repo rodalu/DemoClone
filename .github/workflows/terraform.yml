@@ -5,7 +5,7 @@ on:
   push:
 
 env:
-    GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
     ORGANIZATION: rodalu
     REPO: DemoClone
     
