@@ -10,7 +10,7 @@ jobs:
       steps:
 
         - name: rodalu/DemoClonePUBLIC repository
-          uses: rodalu/clone-DemoClone@main
+          uses: rodalu/DemoClone@main
           with:
               owner: 'rodalu'
               repository: 'DemoClone'
