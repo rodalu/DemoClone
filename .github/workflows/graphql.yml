@@ -14,3 +14,5 @@ jobs: ## jobs to run when triggered
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
          with:
             query: samples/repository-static.query.yaml 
+            logLevel: debug
+            
