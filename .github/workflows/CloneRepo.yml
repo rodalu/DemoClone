@@ -46,8 +46,8 @@ jobs:
         - name: rodalu/apiops PUBLIC repository
           uses: rodalu/clone-github-repo-action@main
           with:
-              owner: 'GuillaumeFalourd'
-              repository: 'poc-github-actions'
+              owner: 'rodalu'
+              repository: 'apiops'
       
         - name: Access cloned repository content
           run: |
