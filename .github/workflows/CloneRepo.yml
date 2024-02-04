@@ -5,25 +5,55 @@ on:
   push:
 
 jobs:  
-  test:
-    runs-on: ubuntu-latest
+    job-public-repo-ubuntu:
+      runs-on: ubuntu-latest
+      steps:
 
-    steps:
-    - name: Clone Repo
-      uses: actions/checkout@v2
+        - name: rodalu/apiops PUBLIC repository
+          uses: rodalu/apiops@main
+          with:
+             owner: 'rodalu'
+             repository: 'apiops'
 
-    # This part here is cloning a second repository
-    # While cloning the repository:
-    #   - it clones the repo into the given `path`
-    #   - it checks out the branch defined at `ref`
-    - name: Clone apiops repository
-      uses: actions/checkout@v2
-      with:
-        repository: rodalu/apiops2
-        path: rodalu/apiops
-        ref: 2.x
-        image: $(params.gitInitImage)
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-         with:
-            logLevel: debug
+        - name: Access cloned repository content
+          run: |
+            echo "ROOT"
+            ls -la
+            echo "CLONED REPO"
+            cd poc-github-actions
+            ls -la
+    job-public-repo-macos:
+      runs-on: macos-latest
+      steps:
+
+        - name: rodalu/apiops PUBLIC repository
+          uses: rodalu/clone-github-repo-action@main
+          with:
+            owner: 'rodalu'
+            repository: 'apiops'
+        
+        - name: Access cloned repository content
+          run: |
+              echo "ROOT"
+              ls -la
+              echo "CLONED REPO"
+              cd poc-github-actions
+              ls -la
+    job-public-repo-windows:
+      runs-on: windows-latest
+      steps:
+
+        - name: rodalu/apiops PUBLIC repository
+          uses: rodalu/clone-github-repo-action@main
+          with:
+              owner: 'GuillaumeFalourd'
+              repository: 'poc-github-actions'
+      
+        - name: Access cloned repository content
+          run: |
+            echo "ROOT"
+            ls -la
+            echo "CLONED REPO"
+            cd poc-github-actions
+            ls -la
+            shell: bash
