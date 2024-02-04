@@ -5,46 +5,12 @@ on:
   push:
 
 jobs:  
-    job-public-repo-ubuntu:
-      runs-on: ubuntu-latest
-      steps:
-
-        - name: rodalu/apiops PUBLIC repository
-          uses: rodalu/apiops@main
-          with:
-             owner: 'rodalu'
-             repository: 'apiops'
-
-        - name: Access cloned repository content
-          run: |
-            echo "ROOT"
-            ls -la
-            echo "CLONED REPO"
-            cd poc-github-actions
-            ls -la
-    job-public-repo-macos:
-      runs-on: macos-latest
-      steps:
-
-        - name: rodalu/apiops PUBLIC repository
-          uses: rodalu/clone-github-repo-action@main
-          with:
-            owner: 'rodalu'
-            repository: 'apiops'
-        
-        - name: Access cloned repository content
-          run: |
-              echo "ROOT"
-              ls -la
-              echo "CLONED REPO"
-              cd poc-github-actions
-              ls -la
-    job-public-repo-windows:
+     job-public-repo-windows:
       runs-on: windows-latest
       steps:
 
         - name: rodalu/apiops PUBLIC repository
-          uses: rodalu/clone-github-repo-action@main
+          uses: rodalu/clone-apiops@main
           with:
               owner: 'rodalu'
               repository: 'apiops'
@@ -54,6 +20,6 @@ jobs:
             echo "ROOT"
             ls -la
             echo "CLONED REPO"
-            cd poc-github-actions
+            cd apiops
             ls -la
             shell: bash
