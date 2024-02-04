@@ -3,10 +3,14 @@ on:
   workflow_dispatch:
   push:
 
+
 jobs: ## jobs to run when triggered
-  build:
-    runs-on: ubuntu-latest ## which machine the job runs on
-    steps: ## steps to run
-      - name: Step One ## name of a step
-        run: | ## commands to run 
-            echo '${{ github.event.ref }}'
+    static-query:
+      runs-on: ubuntu-16.04
+      steps:
+      -  uses: actions/checkout@v2
+      -  uses: ./
+         env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+         with:
+            query: samples/repository-static.query.yaml 

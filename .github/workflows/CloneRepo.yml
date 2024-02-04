@@ -22,37 +22,32 @@ jobs:
         repository: rodalu/apiops2
         path: rodalu/apiops
         ref: 2.x
-
-   steps:
-          - name: clone
-            image: $(params.gitInitImage)
-            env:
-            - name: PARAM_URL
-              value: $(params.url)
-            - name: PARAM_REVISION
-              value: $(params.revision)
-            - name: PARAM_REFSPEC
-              value: $(params.refspec)
-            - name: PARAM_SUBMODULES
+        image: $(params.gitInitImage)
+        env:
+    - name: PARAM_URL  value: $(params.url)
+    - name: PARAM_REVISION value: $(params.revision)
+      - name: PARAM_REFSPEC
+            value: $(params.refspec)
+      - name: PARAM_SUBMODULES
               value: $(params.submodules)
-            - name: PARAM_DEPTH
+      - name: PARAM_DEPTH
               value: $(params.depth)
-            - name: PARAM_SSL_VERIFY
+      - name: PARAM_SSL_VERIFY
               value: $(params.sslVerify)
-            - name: PARAM_SUBDIRECTORY
+      - name: PARAM_SUBDIRECTORY
               value: $(params.subdirectory)
-            - name: PARAM_DELETE_EXISTING
+      - name: PARAM_DELETE_EXISTING
               value: $(params.deleteExisting)
-            - name: PARAM_HTTP_PROXY
+      - name: PARAM_HTTP_PROXY
               value: $(params.httpProxy)
-            - name: PARAM_HTTPS_PROXY
+      - name: PARAM_HTTPS_PROXY
               value: $(params.httpsProxy)
-            - name: PARAM_NO_PROXY
+      - name: PARAM_NO_PROXY
               value: $(params.noProxy)
-            - name: WORKSPACE_OUTPUT_PATH
+      - name: WORKSPACE_OUTPUT_PATH
               value: $(workspaces.output.path)
             script: |
               CHECKOUT_DIR="${WORKSPACE_OUTPUT_PATH}/${PARAM_SUBDIRECTORY}"
       
-          - name: …
+      - name: …
            run: …
