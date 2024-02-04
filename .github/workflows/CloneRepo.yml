@@ -9,17 +9,17 @@ jobs:
       runs-on: windows-latest
       steps:
 
-        - name: rodalu/DemoClonePUBLIC repository
+        - name: rodalu/DemoClone PUBLIC repository
           uses: rodalu/DemoClone@main
           with:
               owner: 'rodalu'
-              repository: 'DemoClone'
+              repository: 'DemoClone2'
       
         - name: Access cloned repository content
           run: |
             echo "ROOT"
             ls -la
             echo "CLONED REPO"
-            cd DemoClone
+            cd DemoClone2
             ls -la
             shell: bash
