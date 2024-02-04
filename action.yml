@@ -67,7 +67,6 @@
                   exit 1
                     fi
               shell: bash
-        
-        branding:
+         branding:
           icon: 'download'
           color: 'blue'
