@@ -28,6 +28,7 @@ runs:
       steps:
        - name: Clone repository
          shell: bash
+        
          run: |
                   if [ -z "${{ inputs.access-token }}" ]; then
                       if [ -z "${{ inputs.depth }}" ]; then
