@@ -13,7 +13,7 @@ jobs:
           uses: rodalu/DemoClone@main
           with:
               owner: 'rodalu'
-              repository: 'DemoClone2'
+              repository: 'DemoClone'
       
         - name: Access cloned repository content
           run: |
