@@ -67,6 +67,6 @@ runs:
                       exit 1
                         if
                   shell: bash
-                      branding:
-                      icon: 'download'
-                      color: 'blue'
+                      # branding:
+                      # icon: 'download'
+                      # color: 'blue'
