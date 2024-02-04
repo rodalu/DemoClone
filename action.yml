@@ -24,10 +24,10 @@ inputs:
           default: "false" 
 
 runs:
-        using: 'composite'
-        steps:
-           - name: Clone repository
-             run: |
+      using: 'composite'
+      steps:
+       - name: Clone repository
+         run: |
                   if [ -z "${{ inputs.access-token }}" ]; then
                       if [ -z "${{ inputs.depth }}" ]; then
                         if [ "${{ inputs.submodule }}" = "true" ]; then
