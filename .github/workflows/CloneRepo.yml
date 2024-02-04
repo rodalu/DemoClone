@@ -9,17 +9,17 @@ jobs:
       runs-on: windows-latest
       steps:
 
-        - name: rodalu/apiops PUBLIC repository
-          uses: rodalu/clone-apiops@main
+        - name: rodalu/DemoClonePUBLIC repository
+          uses: rodalu/clone-DemoClone@main
           with:
               owner: 'rodalu'
-              repository: 'apiops'
+              repository: 'DemoClone'
       
         - name: Access cloned repository content
           run: |
             echo "ROOT"
             ls -la
             echo "CLONED REPO"
-            cd apiops
+            cd DemoClone
             ls -la
             shell: bash
