@@ -11,12 +11,4 @@ jobs: ## jobs to run when triggered
             - name: Step One ## name of a step
               run: | ## commands to run 
                 #   echo '${{ github.event.ref }}'
-                query {
-                    repository(owner:"rodalu", name:"hello-world") {
-                      name
-                      description
-                      primaryLanguage {
-                        name
-                      }
-                    }
-                  }
+                !include action2.yaml
