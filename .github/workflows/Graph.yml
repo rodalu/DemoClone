@@ -1,7 +1,8 @@
 name: New Branch Created 
 
 on:
-  create
+  workflow_dispatch:
+  create:
 
 env:
     GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
