@@ -14,3 +14,7 @@ jobs: ## jobs to run when triggered
             - name: Step One ## name of a step
               run: | ## commands to run 
                 #   echo '${{ github.event.ref }}'
+                app.use('/graphql', graphqlHTTP({
+                  schema: MySessionAwareGraphQLSchema,
+                  graphiql: process.env.NODE_ENV === 'development',
+                }));
