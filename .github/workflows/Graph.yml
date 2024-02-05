@@ -19,11 +19,11 @@ jobs: ## jobs to run when triggered
                     hasNextPage
                     }
                     nodes {
-                    id
+                    id,
                     username,
-                    publicEmail
-                    location
-                    webUrl
+                    publicEmail,
+                    location,
+                    webUrl,
                     userPermissions {
                         createSnippet
                     }
