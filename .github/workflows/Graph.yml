@@ -11,22 +11,14 @@ jobs: ## jobs to run when triggered
             - name: Step One ## name of a step
               run: | ## commands to run 
                 #   echo '${{ github.event.ref }}'
-                {
-                users(usernames: ["user1", "user3", "user4"]) {
-                    pageInfo {
-                    endCursor
-                    startCursor
-                    hasNextPage
+                mutation {
+                createLabel(input: {repositoryId: "<REPOSITORY_ID>", name: "bug", color: "d73a4a"}) {
+                    label {
+                    id
+                    name
                     }
-                    nodes {
-                    id,
-                    usernames,
-                    publicEmail,
-                    location,
-                    webUrl,
-                    userPermissions {
-                        createSnippet
-                    }
-                    }
+                }
+                addLabelsToLabelable(input: {labelableId: "<ISSUE_ID>", labelIds: ["<LABEL_ID>"]}) {
+                    clientMutationId
                 }
                 }
