@@ -10,4 +10,12 @@ jobs: ## jobs to run when triggered
           steps: ## steps to run
             - name: Step One ## name of a step
               run: | ## commands to run 
-                  echo '${{ github.event.ref }}'
+                #   echo '${{ github.event.ref }}'
+                type Query {
+                  eventSearch(
+                  # comma separated location IDs. (eg: '5,12,27')
+                    locationIds: String,
+                     # Date Time should be ISO 8601: 'YYYY-DD-MM HH:mm:ss'. (eg: '2018-04-23 00:00:00')
+                     startDateTime: String!,
+                     endDateTime: String!): [Event]
+                    }
