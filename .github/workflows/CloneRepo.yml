@@ -20,7 +20,7 @@ jobs:
             echo "ROOT"
             ls -la
             echo "CLONED REPO"
-            cd DemoClone2
+            cd DemoClone
             ls -la
             shell: bash
             logLevel: debug
