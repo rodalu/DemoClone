@@ -3,19 +3,23 @@ on:
   workflow_dispatch:
   push:
 
-
-jobs: ## jobs to run when triggered
-    static-query:
-      runs-on: ubuntu-16.04
+  jobs:
+      Check-Branch-Name:
+      runs-on: ubuntu-latest
+      outputs:
+            issue_num: ${{ steps.step1.outputs.issue_num }}
+            tracked: ${{ steps.step1.outputs.tracked }}
       steps:
-      # # - name: Checkout
-      #   run:
-      -  uses: actions/checkout@v2
-      -  uses: ./
-         env:
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-         with:
-            query: samples/repository-static.query.yaml 
-            logLevel: debug
+        -  name: Get Created Issue Number
+         run: 
+                     branch_name=`echo '${{ github.event.ref }}'`
+                     issue_num=`echo ${branch_name#*#} | egrep -o '^[^/]+'`
+                     re='^[0-9]+$'
+                     if ! [[ $issue_num =~ $re ]] ; then
+                        echo "::set-output name=tracked::false"
+                     else
+                        echo "::set-output name=tracked::true"
+                     if
+                        echo "::set-output name=issue_num::$issue_num"
 
-            
+                  
