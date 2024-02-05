@@ -20,7 +20,7 @@ jobs: ## jobs to run when triggered
                     }
                     nodes {
                     id,
-                    username,
+                    usernames,
                     publicEmail,
                     location,
                     webUrl,
