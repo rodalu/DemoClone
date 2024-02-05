@@ -8,7 +8,7 @@ jobs: ## jobs to run when triggered
         echo-branch-name: ## name of a job
           runs-on: ubuntu-latest ## which machine the job runs on
           outputs:
-            issue_num: '${{ github.event.ref }}'
+            event_ref: '${{ github.event.ref }}'
          
           steps: ## steps to run
             - name: Step One ## name of a step
