@@ -2,18 +2,18 @@ type Query {
   hello: String!
 }
 
-type ChatMessage {
+type PersonalInfo {
   displayName: String!
-  message: String!
-  color: String
+  address: String!
+  city: String
   emotes: [[String!]!]
 }
 
-type BanMessage {
+type Message {
   user: String!
 }
 
 type Subscription {
-  chat: ChatMessage!
-  ban: BanMessage!
+  account: AccountName!
+  expiration: Message!
 }
