@@ -32,6 +32,6 @@ jobs:
       run: |
         npx express graphql:push \
           --graph=Stream-Helpers \
-          --key=${{secret.PERSONAL_TOKEN}}\
+        #   --key=${{secret.PERSONAL_TOKEN}}\
           --variant=current \
           --localSchemaFile=./server/schema.graphql
