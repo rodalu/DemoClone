@@ -1,6 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
-
 name: Schema Push
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -8,7 +6,7 @@ name: Schema Push
 on:
   workflow_dispatch:
   push:
-    branches: [ noragrets ]
+    # branches: [ noragrets ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
