@@ -6,6 +6,7 @@ name: Schema Push
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the noragrets branch
 on:
+workflow_dispatch:
   push:
     branches: [ noragrets ]
 
