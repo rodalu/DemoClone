@@ -12,7 +12,8 @@ jobs:
 
     steps:
   
-    - uses: repository/actions/checkout@v2
+    - uses: actions/checkout@v2
+   
     
     - name: Run a one-line script and path
       run: echo Testing one liner      
