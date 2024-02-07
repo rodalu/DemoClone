@@ -13,17 +13,13 @@ jobs:
     steps:
   
     - uses: repository/actions/checkout@v2
-
-
+    
     - name: Run a one-line script and path
-      run: echo Testing one liner
-        
-
+      run: echo Testing one liner      
    
     - name: Install graphQL
       run: |
         npm install graphql-http
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
           -- push\
           -- graph=Stream-Helpers\     
           -- key=${{ secrets.GITHUB_TOKEN}}\      
