@@ -18,9 +18,10 @@ jobs:
     - name: Run a one-line script and path
       run: echo Testing one liner      
    
-    - name: Install graphQL
+    # - name: Install graphQL
+    - name: Query Schema
       run: |
-        npm install graphql-http
+        # npm install graphql-http
           -- push\
           -- graph=Stream-Helpers\     
           -- key=${{ secrets.GITHUB_TOKEN}}\      
