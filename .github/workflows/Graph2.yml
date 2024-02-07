@@ -28,7 +28,7 @@ jobs:
           -- variant=current \
           -- localSchemaFile=./schema/schema.graphql
           #  echo "$HOME/.local/bin" >> $GITHUB_PATH
-           echo $ /usr/bin/env bash
+          #  echo $ /usr/bin/env bash
          
 
     - name: Query Schema
