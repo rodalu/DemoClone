@@ -23,7 +23,7 @@ jobs:
         npm install graphql-http
           -- push\
           -- graph=Stream-Helpers\     
-          -- key=${{ secrets.GITHUB_TOKEN}}\
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          -- key=${{ secrets.GITHUB_TOKEN}}\      
           -- variant=current \
           -- localSchemaFile=./schema/schema.graphql
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
