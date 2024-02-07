@@ -28,6 +28,7 @@ jobs:
           -- localSchemaFile=./schema/schema.graphql
            echo "$HOME/.local/bin" >> $GITHUB_PATH
            echo $ /usr/bin/env bash
+           echo "${{ toJSON(github) }}"
 
     - name: Query Schema
       run : |
