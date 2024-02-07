@@ -13,8 +13,9 @@ jobs:
   
     - uses: actions/checkout@v2
 
-    - name: Run a one-line script
+    - name: Run a one-line script and path
       run: echo Testing one liner
+           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
    
     - name: Install graphQL
