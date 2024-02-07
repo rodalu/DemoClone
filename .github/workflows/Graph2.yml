@@ -24,5 +24,6 @@ jobs:
           -- push\
           -- graph=Stream-Helpers\     
           -- key=${{ secrets.GITHUB_TOKEN}}\
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
           -- variant=current \
           -- localSchemaFile=./schema/schema.graphql
