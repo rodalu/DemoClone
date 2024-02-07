@@ -3,7 +3,8 @@ name: GraphQLAPI
 
 on:
   workflow_dispatch:
-  push:
+  push: 
+     branches: [ main ]
  
 jobs:
   build:
