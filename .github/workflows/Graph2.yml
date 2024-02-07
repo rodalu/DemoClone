@@ -12,29 +12,26 @@ jobs:
 
     steps:
   
-    - uses: actions/checkout@v2
-    - uses: ./
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        query: schema/schema.graphql
+    - uses: repository/actions/checkout@v2
+
+
     - name: Run a one-line script and path
       run: echo Testing one liner
-          
+        
 
    
-    # - name: Install graphQL
-    #   run: |
-    #     npm install graphql-http
-    #     echo "$HOME/.local/bin" >> $GITHUB_PATH
-    #       -- push\
-    #       -- graph=Stream-Helpers\     
-    #       -- key=${{ secrets.GITHUB_TOKEN}}\      
-    #       -- variant=current \
-    #       -- localSchemaFile=./schema/schema.graphql
-    #       #  echo "$HOME/.local/bin" >> $GITHUB_PATH
-    #       #  echo $ /usr/bin/env bash
-
+    - name: Install graphQL
+      run: |
+        npm install graphql-http
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+          -- push\
+          -- graph=Stream-Helpers\     
+          -- key=${{ secrets.GITHUB_TOKEN}}\      
+          -- variant=current \
+          -- localSchemaFile=./schema/schema.graphql
+          #  echo "$HOME/.local/bin" >> $GITHUB_PATH
+          #  echo $ /usr/bin/env bash
+             query: localSchemaFile=./schema/schema.graphql
 
          
 
