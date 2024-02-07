@@ -13,10 +13,16 @@ jobs:
     steps:
   
     - uses: actions/checkout@v2
+      with: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        schema: 'main: schema/local/schema.graphql' 
+        annotation: true
+          
    
-    
     - name: Run a one-line script and path
-      run: echo Testing one liner      
+      run: echo Testing one liner    
+    
+
    
     # - name: Install graphQL
     - name: Query Schema
