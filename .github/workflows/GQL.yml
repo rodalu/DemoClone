@@ -1,0 +1,23 @@
+name: GraphQuery
+
+on:
+   workflow_dispatch:
+   push: 
+     branches: [ main ]
+jobs:
+    operations:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Check File  
+        uses: actions/checkout@v1
+
+      - name: graphql-inspector
+        uses: rodalu/DEMOCLONE@main
+        if: always()
+        with:
+          schema_location: ${{ github.workspace }}/swapi/schema.graphql
+          base_dir: ${{ github.workspace }}/swapi
+          excluded_paths: schema.graphql
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          schema: 'main:schema/local/schema.graphql'
+          annotations: true
