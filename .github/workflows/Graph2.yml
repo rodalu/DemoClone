@@ -37,6 +37,6 @@ jobs:
 
          
 
-    - name: Query Schema
+    - name: Test URL
       run : |
          curl -i --header "${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
