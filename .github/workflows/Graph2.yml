@@ -39,6 +39,4 @@ jobs:
 
     - name: Query Schema
       run : |
-           query {
-              PersonalInfo
-                }
+         curl -i --header "${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
