@@ -21,8 +21,7 @@ jobs:
    
     - name: Run a one-line script and path
       run: echo Testing one liner    
-    
-
+ 
    
     # - name: Install graphQL
     - name: Query Schema
@@ -36,7 +35,7 @@ jobs:
           -- localSchemaFile=./schema/schema.graphql
           #  echo "$HOME/.local/bin" >> $GITHUB_PATH
           #  echo $ /usr/bin/env bash
-             query: localSchemaFile=./schema/schema.graphql
+           
 
          
 
