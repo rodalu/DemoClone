@@ -45,7 +45,18 @@ jobs:
         #-- localSchemaFile=./schema/schema.graphql
         #  echo "$HOME/.local/bin" >> $GITHUB_PATH
         #  echo $ /usr/bin/env bash
-         
+            query {
+              __schema {
+                types {
+                  name
+                  kind
+                  description
+                  fields {
+                    name
+                  }
+                }
+              }
+            }
 
     - name: Test URL
       run : |
