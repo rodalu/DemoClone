@@ -8,20 +8,22 @@ on:
 jobs:
         static-query:
           runs-on: ubuntu-16.04
+
+          - name: Query Schema
+            run: |
+            npm install graphql-http
           steps:
           - uses: actions/checkout@main
           - uses: ./.github/actions/sample
           - uses: actions/checkout@v2
           - uses: ./
 
-          - name: Query Schema
-            run: |
-              npm install graphql-http
+
               -- push\
                env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                  with:
               query: sample/repository-static.query.yml
 
-                  # - name: Install graphQL
+          
   
