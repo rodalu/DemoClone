@@ -1,4 +1,4 @@
-name: GraphQuery
+name: GraphAPI
 
 on:
    workflow_dispatch:
@@ -11,12 +11,12 @@ jobs:
       - name: Check File  
         uses: actions/checkout@v1
 
-      - name: graphql-inspector
+      - name: DEMOCLONE
         uses: rodalu/DEMOCLONE@main
         if: always()
         with:
-          schema_location: ${{ github.workspace }}/swapi/schema.graphql
-          base_dir: ${{ github.workspace }}/swapi
+          schema_location: ${{ github.workspace }}/schema/schema.graphql
+          base_dir: ${{ github.workspace }}/schema
           excluded_paths: schema.graphql
           github-token: ${{ secrets.GITHUB_TOKEN }}
           schema: 'main:schema/local/schema.graphql'
