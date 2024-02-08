@@ -1,4 +1,4 @@
-name: GraphAPI
+name: TestGQL
 
 on:
    workflow_dispatch:
