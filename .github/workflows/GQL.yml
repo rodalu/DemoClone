@@ -13,7 +13,7 @@ jobs:
 
       - name: DEMOCLONE
         uses: rodalu/DEMOCLONE@main
-        if: always()
+        
         with:
           schema_location: ${{ github.workspace }}/schema/schema.graphql
           base_dir: ${{ github.workspace }}/schema
