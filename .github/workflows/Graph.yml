@@ -1,17 +1,19 @@
 name: GraphQuery
 
-on: 
-    workflow_dispatch:
-    push:
+on:
+   workflow_dispatch:
+   push: 
+     branches: [ main ]
 
-jobs: ## jobs to run when triggered
-        echo-branch-name: ## name of a job
-          runs-on: ubuntu-latest ## which machine the job runs on
-          outputs:
-            event_ref: '${{ github.event.ref }}'
-         
-          steps: ## steps to run
-            - name: Step One ## name of a step
-              run: | ## commands to run 
-                #   echo '${{ github.event.ref }}'
-          
+jobs:
+        args-query:
+          runs-on: ubuntu-16.04
+          steps:
+          - uses: actions/checkout@v2
+          - uses: ./
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            with:
+              query: schema/schema.grapql
+              owner: rodalu
+              name: github-graphql-action
