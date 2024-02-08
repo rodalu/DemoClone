@@ -17,4 +17,5 @@ jobs:
         with:       
           github-token: ${{ secrets.GITHUB_TOKEN }}
           schema: 'main:schema/schema.graphql'
+          query: sample/repository-static.query.yaml
           annotations: true
