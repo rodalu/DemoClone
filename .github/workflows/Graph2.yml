@@ -18,22 +18,24 @@ jobs:
    
     - name: Run a one-line script and path
       run: echo Testing one liner    
- 
+           curl --request GET \
+        -- url "https://api.github.com/octocat" \
+        -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \
    
-    # - name: Install graphQL
-    - name: Install Graph QL
-      run: |
-         npm install graphql-http
-         curl -i --header "${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
-         echo "/HolismHolding/Commands" >> $GITHUB_PATH
-          -- push\
-          -- graph=Stream-Helpers\     
-          -- key=${{ secrets.GITHUB_TOKEN }}\      
-          -- variant=current \
-          #-- content-filepath: ./schema/schema.grapql
-          #-- localSchemaFile=./schema/schema.graphql
-          #  echo "$HOME/.local/bin" >> $GITHUB_PATH
-          #  echo $ /usr/bin/env bash
+    # # - name: Install graphQL
+    # - name: Install Graph QL
+    #   run: |
+    #      npm install graphql-http
+    #      curl -i --header "${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
+    #      echo "/HolismHolding/Commands" >> $GITHUB_PATH
+    #       -- push\
+    #       -- graph=Stream-Helpers\     
+    #       -- key=${{ secrets.GITHUB_TOKEN }}\      
+    #       -- variant=current \
+    #       #-- content-filepath: ./schema/schema.grapql
+    #       #-- localSchemaFile=./schema/schema.graphql
+    #       #  echo "$HOME/.local/bin" >> $GITHUB_PATH
+    #       #  echo $ /usr/bin/env bash
 
     - name: GraphQuery
       run: |   
