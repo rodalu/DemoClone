@@ -24,9 +24,10 @@ jobs:
     - name: Query Schema
       run: |
          npm install graphql-http
+         curl -i --header "${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
           -- push\
           -- graph=Stream-Helpers\     
-          -- key=${{ secrets.GITHUB_TOKEN}}\      
+          -- key=${{ secrets.GITHUB_TOKEN }}\      
           -- variant=current \
           -- content-filepath: ./schema/schema.grapql
           -- localSchemaFile=./schema/schema.graphql
