@@ -6,24 +6,17 @@ on:
      branches: [ main ]
 
 jobs:
-        static-query:
-          runs-on: ubuntu-16.04
+  build:
+    runs-on: ubuntu-latest
 
-          - name: Query Schema
-            run: |
-            npm install graphql-http
-          steps:
-          - uses: actions/checkout@main
-          - uses: ./.github/actions/sample
-          - uses: actions/checkout@v2
-          - uses: ./
-
-
+    steps:
+        - name: Query Schema
+          run: |
+             npm install graphql-http
               -- push\
-               env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                 with:
-              query: sample/repository-static.query.yml
-
-          
+              -- graph=Stream-Helpers\     
+              -- key=${{ secrets.GITHUB_TOKEN}}\      
+              -- variant=current \
+              -- content-filepath: ./schema/schema.grapql
+              -- localSchemaFile=./schema/schema.graphql
   
