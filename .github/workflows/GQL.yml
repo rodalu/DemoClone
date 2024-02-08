@@ -3,7 +3,7 @@ name: TestGQL
 on:
    workflow_dispatch:
    push: 
-     branches: [ main ]
+   
 jobs:
     operations:
       runs-on: ubuntu-latest
@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Graph QL Schema
-        uses: rodalu/DEMOCLONE@main
-        
+        uses: rodalu/DEMOCLONE@main        
+
         with:       
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          schema: 'main:schema/local/schema.graphql'
+          schema: 'main:schema/schema.graphql'
           annotations: true
