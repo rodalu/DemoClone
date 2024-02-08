@@ -27,11 +27,12 @@ jobs:
     # - name: Install graphQL
     - name: Query Schema
       run: |
-        # npm install graphql-http
+         npm install graphql-http
           -- push\
           -- graph=Stream-Helpers\     
           -- key=${{ secrets.GITHUB_TOKEN}}\      
           -- variant=current \
+          -- content-filepath: ./schema/schema.grapql
           -- localSchemaFile=./schema/schema.graphql
           #  echo "$HOME/.local/bin" >> $GITHUB_PATH
           #  echo $ /usr/bin/env bash
