@@ -16,10 +16,15 @@ jobs:
   
           
    
-    - name: Run a one-line script and path
+    - name: Github OctoCat
       run: echo Testing one liner    
            curl --request GET \
         -- url "https://api.github.com/octocat" \
+
+        
+    - name: Current Price Json
+      run: echo Testing one liner    
+             curl --request GET \
         -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \
    
     # # - name: Install graphQL
