@@ -1,4 +1,4 @@
-name: GraphQuery
+name: GraphAPI
 
 on:
    workflow_dispatch:
