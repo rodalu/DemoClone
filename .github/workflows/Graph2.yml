@@ -81,3 +81,10 @@ jobs:
           -- url "https://api.ipify.org?format=json" \
           # -- header "Accept: application/vnd.github+json" \
        
+    - name: Test URL using JSON file
+      run : |
+          curl -H "Authorization: bearer TOKEN" -X POST -d " \
+          { \
+          \"query\": \"query { viewer { login }}\" \
+          } \
+          " https://api.coindesk.com/v1/bpi/currentprice.json
