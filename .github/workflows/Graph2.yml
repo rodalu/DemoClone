@@ -68,7 +68,7 @@ jobs:
     - name: Test URL
       run : |
           curl --request POST \
-          -- url "https://api.github.com/applications/YOUR_CLIENT_ID/token" \
+          -- url "https://datausa.io/api/data?drilldowns=Nation&measures=Population" \
           -- user "YOUR_CLIENT_ID:secrets.GITHUB_TOKEN" \
           -- header "Accept: application/vnd.github+json" \
           -- header "X-GitHub-Api-Version: 2022-11-28" \
