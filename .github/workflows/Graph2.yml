@@ -80,6 +80,4 @@ jobs:
           curl --request POST \
           -- url "https://api.ipify.org?format=json" \
           -- header "Accept: application/vnd.github+json" \
-          -- data '{
-                    "access_token": "ACCESS_TOKEN_TO_CHECK"
-                    }'
+       
