@@ -88,3 +88,22 @@ jobs:
           \"query\": \"query { viewer { login }}\" \
           } \
           " https://api.coindesk.com/v1/bpi/currentprice.json
+
+
+    - name: Test URL using JSON file
+      run : |
+              curl -H "Authorization: bearer TOKEN" -X POST -d " \
+              { \
+              \"query\": \"query { viewer { login }}\" \
+              } \
+              " https://api.coindesk.com/v1/bpi/currentprice.json
+   
+    - name: Read and Execute Graphql
+      id: package
+      uses: rodalu/DEMOCLONE
+      with:
+        path: ./schema/schema.graphql
+      
+      
+    - name: Echo Graphql
+      run : echo "${{steps.package.outputs.content}}"
