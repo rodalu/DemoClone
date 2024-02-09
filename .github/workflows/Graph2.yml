@@ -65,15 +65,15 @@ jobs:
     #           }
     #         }
 
-    - name: Test URL with Post 
-      run : |
-         curl --request POST \
-         -- url "https://datausa.io/api/data?drilldowns=Nation&measures=Population" \
+    # - name: Test URL with Post 
+    #   run : |
+    #      curl --request POST \
+    #      -- url "https://datausa.io/api/data?drilldowns=Nation&measures=Population" \
 
-         -- header "Accept: application/vnd.github+json" \
-         -- data '{
-                 "access_token": "ACCESS_TOKEN_TO_CHECK"
-                }'
+    #      -- header "Accept: application/vnd.github+json" \
+    #      -- data '{
+    #              "access_token": "ACCESS_TOKEN_TO_CHECK"
+    #             }'
 
     - name: Test URL using JSON file
       run : |
