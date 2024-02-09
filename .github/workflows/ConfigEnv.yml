@@ -15,9 +15,9 @@ jobs:
 
     - uses: actions/checkout@v2
     - name: Set env QA
-      run: echo "QA_ENVI_SHORT=$(echo $QA_ENVI| cut -c 1-6)" >> $GITHUB_ENV
+      run: echo "QA_ENVI=$(echo $QA_ENVI| cut -c 1-6)" >> $GITHUB_ENV
       env: 
          QA_ENVIRONMENT: QA_Environment
 
     - name: Test QA ENVIRONMENT
-      run: echo $QA_ENVIRONMENT
+      run: echo $QA_ENVI
