@@ -16,7 +16,7 @@ jobs:
     - name: Set env QA
       run: echo "QA_ENVI=$(echo $QA_ENVI| cut -c 1-6)" >> $GITHUB_ENV
       env: 
-         QA_ENVIRONMENT: QA_Environment
+         QA_ENVIRONMENT: QA_ENVI
 
     - name: Test QA ENVIRONMENT
       run: echo $QA_ENVI

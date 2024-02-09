@@ -46,7 +46,7 @@ jobs:
               \"query\": \"query { viewer { login }}\" \
               } \
               " https://api.coindesk.com/v1/bpi/currentprice.json
-              knit: (function(inputFile, encoding) { 
-                rmarkdown::render(inputFile,
-                              encoding=encoding, 
-                              output_file='new_file_name.html')) })
+              # knit: (function(inputFile, encoding) { 
+              #   rmarkdown::render(inputFile,
+              #                 encoding=encoding, 
+              #                 output_file='new_file_name.html')) })
