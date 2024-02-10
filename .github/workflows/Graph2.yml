@@ -28,7 +28,7 @@ jobs:
            run : |
              curl --request POST \
               -- url "https://api.ipify.org?format=json" \
-             # -- header "Accept: application/vnd.github+json" \
+              -- header "Accept: application/vnd.github+json" \
        
          - name: Test URL using JSON file
            run : |
@@ -36,12 +36,12 @@ jobs:
              { \
               \"query\": \"query { viewer { login }}\" \
              } \
-             " https://api.coindesk.com/v1/bpi/currentprice.json
+             " https://api.coindesk.com/v1/bpi/currentprice.json -o "file_#1.txt"
         
 
          - name: Github Users
            run: echo Testing one liner    
-               https://api.github.com/authorizations
+               https://api.github.com/authorizations -o "file_#1.txt"
       
          - name: Github Users Read File
            run: |   
