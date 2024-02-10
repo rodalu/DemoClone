@@ -45,5 +45,5 @@ jobs:
       
          - name: Github Users Read File
            run: |   
-                curl -X POST -H "Content-Type: application/json" -d @../configuration/test.json https://api.github.com/users
+                curl -X POST -H "Content-Type: application/json" -d @../configurations/test.json https://api.github.com/users
            
