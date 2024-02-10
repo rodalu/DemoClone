@@ -45,5 +45,5 @@ jobs:
       
          - name: Github Users
            run: |   
-               curl -vX POST http://server/api/v1/places.json -d @test.json \
+               curl -vX POST https://api.github.com/users -d @test.json \
                --header "Content-Type: application/json"
