@@ -38,6 +38,14 @@ jobs:
              } \
             " https://api.coindesk.com/v1/bpi/currentprice.json
 
+         - name: Test URL API Users
+           run : |
+             curl -H "Authorization: bearer TOKEN" -X POST -d " \
+              { \
+               \"query\": \"query { viewer { login }}\" \
+              } \
+             " https://api.github.com/users "
+
          - name: Github Users
            run: echo Testing one liner    
                curl --request GET \
