@@ -38,30 +38,8 @@ jobs:
              } \
             " https://api.coindesk.com/v1/bpi/currentprice.json
 
-         - name: Test URL API Users
-           run : |
-             curl -H "Authorization: bearer TOKEN" -X POST -d " \
-              { \
-               \"query\": \"query { users { login }}\" \
-              } \
-             " https://api.github.com/users "
-
          - name: Github Users
            run: echo Testing one liner    
-               curl --request Fetch \
+              curl --request GET \
                -- url " https://api.github.com/users" \
           
-                           
-            
-
-         - name: Test URL using JSON file0
-           run : |
-              curl -H "Authorization: bearer TOKEN" -X POST -d " \
-              { \
-              \"query\": \"query { viewer { login }}\" \
-              } \
-              " https://api.coindesk.com/v1/bpi/currentprice.json
-              # knit: (function(inputFile, encoding) { 
-              #   rmarkdown::render(inputFile,
-              #                 encoding=encoding, 
-              #                 output_file='new_file_name.html')) })
