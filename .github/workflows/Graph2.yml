@@ -41,7 +41,4 @@ jobs:
 
          - name: Github Users
            run: echo Testing one liner    
-              curl -X GET https://api.github.com/user
-
-             
-          
+               https://api.github.com/authorizations
