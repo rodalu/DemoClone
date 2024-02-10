@@ -43,7 +43,7 @@ jobs:
            run: echo Testing one liner    
                https://api.github.com/authorizations
       
-         - name: Github Users
+         - name: Github Users Read File
            run: |   
-               curl -vX POST https://api.github.com/users -d @test.json \
-               --header "Content-Type: application/json"
+                curl -X POST -H "Content-Type: application/json" -d @../configuration/test.json https://api.github.com/users
+           
