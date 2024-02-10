@@ -36,7 +36,15 @@ jobs:
              { \
               \"query\": \"query { viewer { login }}\" \
              } \
-            " https://api.coindesk.com/v1/bpi/currentprice.json
+            " https://api.coindesk.com/v1/bpi/currentprice.json"
+        
+         - name: Test URL GIT USERS using JSON file
+           run : |
+             curl -H "Authorization: bearer TOKEN" -X POST -d " \
+              { \
+               \"query\": \"query { viewer { login }}\" \
+              } \
+             "  https://api.github.com/users "
 
          - name: Github Users
            run: echo Testing one liner    
