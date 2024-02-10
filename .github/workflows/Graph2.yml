@@ -38,15 +38,24 @@ jobs:
              } \
             " https://api.coindesk.com/v1/bpi/currentprice.json
 
-            - name: Github Users
-            run: echo Testing one liner    
+         - name: Github Users
+           run: echo Testing one liner    
                curl --request GET \
                -- url " https://api.github.com/users" \
-               query {
-                          users {
-                           login 
+                        query {
+                        __schema {
+                          users{
+                            login
+                            id
+                            description
+                            fields {
+                              name
+                            }
+                          }
+                        }
+                      }
                            
-                     }
+            
 
          - name: Test URL using JSON file0
            run : |
