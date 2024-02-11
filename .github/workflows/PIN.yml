@@ -47,11 +47,18 @@ jobs:
                     }' \
                 https://app-id.appsync-api.us-east-1.amazonaws.com/graphql
 
+         - name: Current Access Token
+           run: |
+                curl --request GET \
+                --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
+                --header "Accept: application/vnd.github+json" \
+                --header "Authorization: Bearer $GH_TOKEN"           
+
          - name: Current GraphQry
            run: |   
              curl -i -H 'Content-Type: application/json' -H "Authorization: bearer myGithubAccessToken" -X POST 
-             -d '{"query": "query {repository(owner: \"wso2\", name: \"product-is\") {description}}"}'
-              https://api.github.com/graphql
+             -d '{"query": "query {repository(owner: \"rodalu\", name: \"product-is\") {description}}"}'
+             https://api.coindesk.com/v1/bpi/currentprice.json
 
 
          - name: Current Bank 
