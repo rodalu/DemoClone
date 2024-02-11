@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Current Price Json BPI
-          run: |   
-             curl --request GET \
+          run: |           
              {
                 "apiCreateInput": {
                   "name": "graphql example",
