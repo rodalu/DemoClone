@@ -13,5 +13,5 @@ jobs:
          - uses: actions/checkout@v2
 
          - name: Github ReadFile
-           run:  src/.github/sample/repository-static.query.yaml
+           run:  src/.github/repository-static.query.yaml
   
