@@ -56,9 +56,7 @@ jobs:
                      -d '{ "query": "mutation($user: UserInput!) { createUser(user: $user) { name location id } }" ,
                              "variables": {
                              "bpi": {
-                                 "code": "USD",
-                                 "rate": "48,019.469",
-                                 "Description": "United States Dollar"
+                                 "code": "USD"                          
                              }
                              }
                          }' \
