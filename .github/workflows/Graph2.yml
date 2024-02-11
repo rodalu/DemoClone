@@ -24,7 +24,7 @@ jobs:
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
              -- header "Accept: application/vnd.github+json" \
 
-         - name: Current Price Json BDO
+         - name: Current Repo review
            run: |   
              curl -L \
              - H "Accept: application/vnd.github+json" \
