@@ -29,32 +29,18 @@ jobs:
              curl --request POST \
               -- url "https://api.ipify.org?format=json" \
               -- header "Accept: application/vnd.github+json" \
-                    
-
-         - name: Github Users
-           run: echo Testing one liner    
-               https://api.github.com/authorizations 
-      
-         - name: Github Users Read File
-           run: |   
-                curl -X POST -H "Content-Type: application/json" -d @../configurations/test.json https://api.github.com/users
-               
-         - name: Test Package.json
-           run: |
-                  echo 'PACKAGE_JSON<<EOF' >> $GITHUB_ENV
-                  cat ./package.json >> $GITHUB_ENV
-                  echo 'EOF' >> $GITHUB_ENV
-          #  run: |
-          #         echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+                   
 
          - name: Github Test Query
            run: |   
-                https://api.github.com/authorizations 
-                  type Query {
-                   users: [User]
-                    }
-
-                    type User {
-                    id: String!
-                        name: String!
-                        }
+            with:
+              result-encoding: string
+              script: |
+                try {
+                  const fs = require('fs')
+                  const jsonString = fs.readFileSync('./workflows/package.json')
+                  var apps = JSON.parse(jsonString)
+                } catch(err) {
+                  core.error("Error while reading or parsing the JSON")
+                  core.setFailed(err)
+                }
