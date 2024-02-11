@@ -36,12 +36,12 @@ jobs:
              { \
               \"query\": \"query { viewer { login }}\" \
              } \
-             " https://api.coindesk.com/v1/bpi/currentprice.json -o "file_#1.txt"
+             " https://api.coindesk.com/v1/bpi/currentprice.json 
         
 
          - name: Github Users
            run: echo Testing one liner    
-               https://api.github.com/authorizations -o "file_#1.txt"
+               https://api.github.com/authorizations 
       
          - name: Github Users Read File
            run: |   
@@ -54,3 +54,15 @@ jobs:
                   echo 'EOF' >> $GITHUB_ENV
           #  run: |
           #         echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+
+         - name: Github Users
+           run: |   
+                https://api.github.com/authorizations 
+                  type Query {
+                   users: [User]
+                    }
+
+                    type User {
+                    id: String!
+                        name: String!
+                        }
