@@ -9,9 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: rodalu/DemoClone
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            query: sample/repository-static.query.yaml
+        - name: Current Price Json BPI
+          run: |   
+             curl --request GET \
+             {
+                "apiCreateInput": {
+                  "name": "graphql example",
+                  "category": "Other",
+                  "description": "...",
+                  "version": {
+                    "spec": {
+                      "gql": {
+                        "baseUrl": "https://api.coindesk.com/v1/bpi/currentprice.json",
+                        "schemaSource": {
+                          "type": "SDL",
+                          "source": "type Query { getItem: Item } type Mutation { setItem (id: ID name: String): Item } type Item { id: ID name: String }"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
