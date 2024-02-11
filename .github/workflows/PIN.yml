@@ -55,14 +55,17 @@ jobs:
                 --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"           
 
          - name: Current GraphQry
+           uses: rodalu/DEMOCLONE@v1
+           id: comment-branch
+        
+         - name: Run QUery
            run: |   
-                query($preview: Boolean){
-                    blogCollection(preview: $preview){
-                    items{
-                        title
-                    }
-                    }
-                }
-
+                status=$(curl -s --request POST \
+                --url https://x.com/api \
+                --header 'Token: ${{ secrets.GITHUB_TOKEN }}' \
+                --header 'content-type: application/json' \
+                --data '{"parameters": {"run_workflow_test":true, "source_branch":"${{ steps.comment-branch.outputs.head_ref }}"}
+                }' | jq -r '.state'); echo "status=$status" >> $GITHUB_OUTPUT
+                id: req
 
      
