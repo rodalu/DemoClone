@@ -31,11 +31,11 @@ jobs:
               -- url "https://api.ipify.org?format=json" \
               -- header "Accept: application/vnd.github+json" \
                    
-         - name: Test URL using JSON New JSON
+         - name: Test URL wit header
            run : |
-               curl --request POST \
-                -- url "https://api.coindesk.com/v1/bpi/currentprice.json?format=json" \
-                -- header "Accept: application/vnd.github+json" \
+             curl --request POST \
+              -- url "https://api.coindesk.com/v1/bpi/currentprice.json?format=json" \
+              -- header "Accept: application/vnd.github+json" \
           
    
    
