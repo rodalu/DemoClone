@@ -30,7 +30,7 @@ jobs:
               -- url "https://api.ipify.org?format=json" \
               -- header "Accept: application/vnd.github+json" \
        
-         - name: Test URL using JSON file
+         - name: Test URL with quesry JSON file
            run : |
             curl -H "Authorization: bearer TOKEN" -X POST -d " \
              { \
@@ -55,7 +55,7 @@ jobs:
           #  run: |
           #         echo '${{ fromJson(env.PACKAGE_JSON).version }}'
 
-         - name: Github Users
+         - name: Github Test Query
            run: |   
                 https://api.github.com/authorizations 
                   type Query {
