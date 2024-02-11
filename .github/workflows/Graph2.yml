@@ -32,11 +32,11 @@ jobs:
        
          - name: Test URL with quesry JSON file
            run : |
-            curl -H "Authorization: bearer TOKEN" -X POST -d " \
-             { \
-              \"query\": \"query { viewer { login }}\" \
-             } \
-             " https://api.coindesk.com/v1/bpi/currentprice.json 
+                 curl -H "Authorization: bearer TOKEN" -X POST -d " \
+                 { \
+                  \"query\": \"query { viewer { login }}\" \
+                  } \
+                   " https://api.coindesk.com/v1/bpi/currentprice.json \
         
 
          - name: Github Users
