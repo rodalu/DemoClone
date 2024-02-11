@@ -47,6 +47,13 @@ jobs:
                     }' \
                 https://app-id.appsync-api.us-east-1.amazonaws.com/graphql
 
+         - name: Current GraphQry
+           run: |   
+             curl -i -H 'Content-Type: application/json' -H "Authorization: bearer myGithubAccessToken" -X POST 
+             -d '{"query": "query {repository(owner: \"wso2\", name: \"product-is\") {description}}"}'
+              https://api.github.com/graphql
+
+
          - name: Current Bank 
            run: |   
                      curl \
