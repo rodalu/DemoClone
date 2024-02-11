@@ -22,23 +22,7 @@ jobs:
             curl --request POST \
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json?format=json" \
              -- header "Accept: application/vnd.github+json" \
-
-
-         - name: Github Test Query
-           uses: ./workflows
-           id: check-env
-           with:
-              result-encoding: string
-              script: |
-                try {
-                  const fs = require('fs')
-                  const jsonString = fs.readFileSync('./dir/package.json')
-                  var apps = JSON.parse(jsonString)
-                } catch(err) {
-                  core.error("Error while reading or parsing the JSON")
-                  core.setFailed(err)
-                }
-
+       
 
          - name: Current Price Json
            run: echo Testing one liner    
