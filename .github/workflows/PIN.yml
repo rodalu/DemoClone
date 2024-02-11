@@ -1,6 +1,7 @@
 name: Pin issue
 
 on:
+  workflow_dispatch:
   issues:
     types: [labeled]
     
