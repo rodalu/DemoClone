@@ -55,7 +55,7 @@ jobs:
                 --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"           
 
          - name: Current GraphQry
-           uses: rodalu/DEMOCLONE@v1
+           uses: ./
            id: comment-branch
         
          - name: Run QUery
