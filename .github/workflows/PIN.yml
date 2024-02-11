@@ -56,9 +56,13 @@ jobs:
 
          - name: Current GraphQry
            run: |   
-             curl -i -H 'Content-Type: application/json' -H "Authorization: bearer myGithubAccessToken" -X POST 
-             -d '{"query": "query {repository(owner: \"rodalu\", name: \"product-is\") {description}}"}'
-             https://api.coindesk.com/v1/bpi/currentprice.json
+                query($preview: Boolean){
+                    blogCollection(preview: $preview){
+                    items{
+                        title
+                    }
+                    }
+                }
 
 
      
