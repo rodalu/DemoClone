@@ -17,13 +17,7 @@ jobs:
               curl --request GET \
               -- url "https://api.github.com/octocat" \
               
-         - name: Test URL using JSON New JSON
-           run : |
-            curl --request POST \
-             -- url "https://api.coindesk.com/v1/bpi/currentprice.json?format=json" \
-             -- header "Accept: application/vnd.github+json" \
-       
-
+        
          - name: Current Price Json
            run: |   
              curl --request GET \
@@ -37,5 +31,11 @@ jobs:
               -- url "https://api.ipify.org?format=json" \
               -- header "Accept: application/vnd.github+json" \
                    
-
+         - name: Test URL using JSON New JSON
+           run : |
+               curl --request POST \
+                -- url "https://api.coindesk.com/v1/bpi/currentprice.json?format=json" \
+                -- header "Accept: application/vnd.github+json" \
+          
+   
    
