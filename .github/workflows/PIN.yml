@@ -46,3 +46,20 @@ jobs:
                         }
                     }' \
                 https://app-id.appsync-api.us-east-1.amazonaws.com/graphql
+
+         - name: Current Bank 
+           run: |   
+                     curl \
+                     -X POST \
+                     -H "x-api-key: xxx-xxxx" \
+                     -H "Content-Type: application/json" \
+                     -d '{ "query": "mutation($user: UserInput!) { createUser(user: $user) { name location id } }" ,
+                             "variables": {
+                             "bpi": {
+                                 "code": "USD",
+                                 "rate": "48,019.469",
+                                 "Description": "United States Dollar"
+                             }
+                             }
+                         }' \
+                         https://api.coindesk.com/v1/bpi/currentprice.json
