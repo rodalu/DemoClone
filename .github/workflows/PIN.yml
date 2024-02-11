@@ -8,7 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-        - name: Current Price Json BPI
-          run:  source ${GITHUB_ACTION_PATH}/sample/repository-static.query.yaml
+
+    steps:     
+         - uses: actions/checkout@v2
+
+         - name: Github ReadFile
+           run:  source ${GITHUB_ACTION_PATH}/sample/repository-static.query.yaml
   
