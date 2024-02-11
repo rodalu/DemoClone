@@ -29,3 +29,12 @@ jobs:
                 -H "Authorization: ${{ secrets.GITHUB_TOKEN }} " \
                 -H "X-GitHub-Api-Version: 2022-11-28" \
                 https://api.coindesk.com/v1/bpi/currentprice.json
+
+         - name: Current Price Json BPI
+           run: |   
+                curl \
+                -X POST \
+                -H "x-api-key: xxx-xxxx" \
+                -H "Content-Type: application/json" \
+                -d '{ "query": "query { listUsers { name } }" }' \
+                https://app-id.appsync-api.us-east-1.amazonaws.com/graphql
