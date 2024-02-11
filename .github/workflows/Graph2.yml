@@ -17,20 +17,6 @@ jobs:
               curl --request GET \
               -- url "https://api.github.com/octocat" \
               
-        
-         - name: Current Price Json
-           run: echo Testing one liner    
-             curl --request GET \
-             -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
-
-
-         - name: Test URL using JSON file
-           run : |
-             curl --request POST \
-              -- url "https://api.ipify.org?format=json" \
-              -- header "Accept: application/vnd.github+json" \
-                   
-
          - name: Test URL using JSON New JSON
            run : |
             curl --request POST \
@@ -52,3 +38,19 @@ jobs:
                   core.error("Error while reading or parsing the JSON")
                   core.setFailed(err)
                 }
+
+
+         - name: Current Price Json
+           run: echo Testing one liner    
+             curl --request GET \
+             -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
+
+
+         - name: Test URL using JSON file
+           run : |
+             curl --request POST \
+              -- url "https://api.ipify.org?format=json" \
+              -- header "Accept: application/vnd.github+json" \
+                   
+
+   
