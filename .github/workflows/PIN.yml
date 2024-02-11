@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Current Price Json BPI
-          run:  $GITHUB_ACTION_PATH/action.yml
+          run:  source ${GITHUB_ACTION_PATH}/echo.s
           shell: bash
