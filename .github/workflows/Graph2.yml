@@ -25,9 +25,10 @@ jobs:
        
 
          - name: Current Price Json
-           run: echo Testing one liner    
+           run: |   
              curl --request GET \
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
+             -- header "Accept: application/vnd.github+json" \
 
 
          - name: Test URL using JSON file
