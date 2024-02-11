@@ -32,14 +32,14 @@ jobs:
                    
 
          - name: Github Test Query
-           uses: action /github-script@v6
+           uses: action/democlone@v6
            id: check-env
            with:
               result-encoding: string
               script: |
                 try {
                   const fs = require('fs')
-                  const jsonString = fs.readFileSync('./dir/file.json')
+                  const jsonString = fs.readFileSync('./dir/package.json')
                   var apps = JSON.parse(jsonString)
                 } catch(err) {
                   core.error("Error while reading or parsing the JSON")
