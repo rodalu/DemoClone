@@ -60,9 +60,9 @@ jobs:
                      -X POST \
                      -H "x-api-key: xxx-xxxx" \
                      -H "Content-Type: application/json" \
-                     -d '{ "query": "mutation($user: UserInput!) { createUser(user: $user) { name location id } }" ,
+                     -d '{ "query": "mutation($currentprice: UserInput!) { createcurrentprice(code: $currentprice) }" ,
                              "variables": {
-                             "bpi": {
+                             "currentprice": {
                                  "code": "USD"                          
                              }
                              }
