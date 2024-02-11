@@ -52,7 +52,7 @@ jobs:
                 curl --request GET \
                 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
                 --header "Accept: application/vnd.github+json" \
-                --header "Authorization: Bearer $GH_TOKEN"           
+                --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"           
 
          - name: Current GraphQry
            run: |   
@@ -61,17 +61,4 @@ jobs:
              https://api.coindesk.com/v1/bpi/currentprice.json
 
 
-         - name: Current Bank 
-           run: |   
-                     curl \
-                     -X POST \
-                     -H "x-api-key: xxx-xxxx" \
-                     -H "Content-Type: application/json" \
-                     -d '{ "query": "mutation($currentprice: UserInput!) { createcurrentprice(code: $currentprice) }" ,
-                             "variables": {
-                             "currentprice": {
-                                 "code": "USD"                          
-                             }
-                             }
-                         }' \
-                         https://api.coindesk.com/v1/bpi/currentprice.json
+     
