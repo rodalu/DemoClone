@@ -32,7 +32,7 @@ jobs:
                    
 
          - name: Github Test Query
-           uses: action/democlone@v6
+           uses: rodalu/democlone@v6
            id: check-env
            with:
               result-encoding: string
