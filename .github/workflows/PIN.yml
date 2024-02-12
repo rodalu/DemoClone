@@ -46,17 +46,6 @@ jobs:
                         }
                     }' \
                 https://app-id.appsync-api.us-east-1.amazonaws.com/graphql
-
-         - name: Current Access Token
-           run: |
-                curl --request GET \
-                --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-                --header "Accept: application/vnd.github+json" \
-                --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -o "outputfile1.txt"           
-
-         - name: Current GraphQry
-           uses: ./
-           id: comment-branch
         
          - name: Run Query using Bash and Curl
            run: |   
@@ -92,8 +81,8 @@ jobs:
                 }' | tr -d '\n' | curl \
                     -X POST \
                     -H "Content-Type: application/json" \
-                    -H "X-Auth-Email: CLOUDFLARE_EMAIL" \
-                    -H "X-Auth-key: CLOUDFLARE_API_KEY" \
+                    -H "X-Auth-Email: rodel.boy.aluzan@accenture.com" \
+                    -H "X-Auth-key: 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" \
                     -s \
                     -d @- \
                     https://api.cloudflare.com/client/v4/graphql/
