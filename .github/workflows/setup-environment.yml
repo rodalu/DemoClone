@@ -11,7 +11,7 @@ jobs:
       Dev_Environment: Dev_Environment
     steps:
        - name: Read ENV
-         run: echo "Dev Environment ${{env.Dev_Environment}}"
+         run: echo "Dev Environment ${{env.Dev_Environment}}">> $GITHUB_ENV
 
 
           
