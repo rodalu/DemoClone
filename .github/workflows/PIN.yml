@@ -28,7 +28,7 @@ jobs:
                 -H "Accept: application/vnd.github+json" \
                 -H "Authorization: ${{ secrets.GITHUB_TOKEN }} " \
                 -H "X-GitHub-Api-Version: 2022-11-28" \
-                https://api.coindesk.com/v1/bpi/currentprice.json
+                https://api.coindesk.com/v1/bpi/currentprice.json  -o "outputfile1.txt"        
 
          - name: Current Graphql
            run: |   
@@ -52,7 +52,7 @@ jobs:
                 curl --request GET \
                 --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
                 --header "Accept: application/vnd.github+json" \
-                --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"           
+                --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -o "outputfile1.txt"           
 
          - name: Current GraphQry
            uses: ./
