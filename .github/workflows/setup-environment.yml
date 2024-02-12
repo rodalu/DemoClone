@@ -16,7 +16,7 @@ jobs:
       - name: Make envfile
         uses: ./
         with:
-            path: .github/env
+            path: https://github.com/rodalu/DemoClone/blob/main/.github/
             envkey_DEBUG: false
             envkey_SOME_API_KEY: "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"
             envkey_SECRET_KEY: ${{ secrets.GITHUB_TOKEN }}
