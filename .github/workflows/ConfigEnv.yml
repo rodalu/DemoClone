@@ -24,7 +24,7 @@ jobs:
         id: set_env_release-candidate
         if: |
           github.ref == 'refs/heads/release-candidate'
-        uses: thgbrb/setup-environment@main
+        uses: rodalu/democlone@main
         with:
           environment-config-file: "setup_qa.env"
           section-name: "QA Development"
