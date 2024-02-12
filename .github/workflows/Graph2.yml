@@ -32,10 +32,12 @@ jobs:
            
          - name: graphql read files
            run: |
-              curl -i -H 'Content-Type: application/json' \
-              -H "Authorization: bearer PERSONAL_TOKEN" \
-              -X POST -d "{ \"query\": \"$script\"}" https://api.github.com/graphql
+            curl --request GET \
+            --url "https://api.github.com/repos/democlone" \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GIT_TOKEN"
 
-            
+         
+
    
    
