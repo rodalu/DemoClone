@@ -13,5 +13,9 @@ jobs:
        - name: Read ENV
          run: echo "Dev Environment ${{env.Dev_Environment}}">> $GITHUB_ENV
 
+       - name: Test ENV
+         run : |
+              echo Dev_Environment = ${{env.Dev_Environment}}
+
 
           
