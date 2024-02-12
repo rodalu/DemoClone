@@ -3,29 +3,15 @@ name: Environment_Setup
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-jobs: 
-  create_env_file_job:
-    runs-on: ubuntu-latest
-  
-    steps:
-      - name: Create .env file
-        run: |         
-          echo "${{ secrets.GITHUB_TOKEN }}" > .env
-      - name: Make envfile
-        uses: ./
-        with:
-            path: https://github.com/rodalu/DemoClone/blob/main/.github/
-            envkey_DEBUG: false
-            envkey_SOME_API_KEY: "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"
-            envkey_SECRET_KEY: ${{ secrets.GITHUB_TOKEN }}
-            file_name: .env
 
-      - name: Development_Environment
-        run: echo "$Development_Environment"
-        env:
-            $Development_Environment: Development Environment
+jobs: 
+   Environments:
+    runs-on: ubuntu=latest
+    env:
+      Dev_Environment: Dev_Environment
+    steps:
+       - name: Read ENV
+         run: echo "Dev Environment ${{env.Dev_Environment}}"
 
 
           
