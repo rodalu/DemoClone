@@ -30,11 +30,13 @@ jobs:
            with:
               path: api.github.com/repos/sample/repository-static.query.yaml
            
-         - name: Read Files
+         - name: graphql read files
            run: |
-            curl \                                                                               
-            -H "Accept: application/vnd.github.VERSION.raw" \
-            https://api.github.com/repos/sample/repository-static.query.yaml
+             $ curl -i -H 'Content-Type: application/json' 
+             -H "Authorization: bearer PERSONAL_TOKEN"
+             -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"product-is\") {description}}"}' 
+             https://api.github.com/graphql
+
             
    
    
