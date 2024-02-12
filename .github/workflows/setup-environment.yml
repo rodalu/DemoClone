@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create .env file
-        uses: ./
-        with:
-          ENV_TEST_API_KEY: ${{ secrets.GITHUB_TOKEN }}
-          ENV_ANOTHER_KEY: ${{ secrets.GITHUB_TOKEN }}
+        run: |         
+          echo "${{ secrets.GITHUB_TOKEN }}" > .env
+
+
+
+          
