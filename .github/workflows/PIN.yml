@@ -58,13 +58,44 @@ jobs:
            uses: ./
            id: comment-branch
         
-         - name: Run QUery
+         - name: Run Query using Bash and Curl
            run: |   
-                curl -g \
-                -X POST \
-                -H "Content-Type: application/json" \
-                -H "Authorization: Bearer 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" \
-                -d '{"query":"query{showCollection {items { title firstEpisodeDate lastEpisodeDate henshinMp4 { url }}}}"}' \
-                https://graphql.contentful.com/content/v1/spaces/mt0pmhki5db7
+                echo '{ "query":
+                    "{
+                    viewer {
+                        zones(filter: { zoneTag: $zoneTag }) {
+                        firewallEventsAdaptive(
+                            filter: $filter
+                            limit: 10
+                            orderBy: [datetime_DESC]
+                        ) {
+                            action
+                            clientAsn
+                            clientCountryName
+                            clientIP
+                            clientRequestPath
+                            clientRequestQuery
+                            datetime
+                            source
+                            userAgent
+                        }
+                        }
+                    }
+                    }",
+                    "variables": {
+                    "zoneTag": "<zone-tag>",
+                    "filter": {
+                        "datetime_geq": "2022-07-24T11:00:00Z",
+                        "datetime_leq": "2022-07-24T12:00:00Z"
+                    }
+                    }
+                }' | tr -d '\n' | curl \
+                    -X POST \
+                    -H "Content-Type: application/json" \
+                    -H "X-Auth-Email: CLOUDFLARE_EMAIL" \
+                    -H "X-Auth-key: CLOUDFLARE_API_KEY" \
+                    -s \
+                    -d @- \
+                    https://api.cloudflare.com/client/v4/graphql/
 
      
