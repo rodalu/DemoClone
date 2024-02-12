@@ -16,6 +16,7 @@ jobs:
        - name: Test ENV
          run : |
               echo Dev_Environment = ${{env.Dev_Environment}}
+              echo test1 vars as Dev_Environment = ${{env.Dev_Environment}}
 
 
           
