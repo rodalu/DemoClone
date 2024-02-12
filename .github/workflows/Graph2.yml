@@ -17,13 +17,24 @@ jobs:
               curl --request GET \
               -- url "https://api.github.com/octocat" \
               
-        
+         
          - name: Current Price Json BPI
            run: |   
              curl --request GET \
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
              -- header "Accept: application/vnd.github+json" \
 
-    
+         - name: Load files
+           uses: ./
+           id: yamlfile
+           with:
+              path: api.github.com/repos/sample/repository-static.query.yaml
+           
+         - name: Read Files
+           run: |
+            curl \                                                                               
+            -H "Accept: application/vnd.github.VERSION.raw" \
+            https://api.github.com/repos/sample/repository-static.query.yaml
+            
    
    
