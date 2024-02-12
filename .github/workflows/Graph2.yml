@@ -32,10 +32,9 @@ jobs:
            
          - name: graphql read files
            run: |
-             $ curl -i -H 'Content-Type: application/json' 
-             -H "Authorization: bearer PERSONAL_TOKEN"
-             -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"product-is\") {description}}"}' 
-             https://api.github.com/graphql
+              curl -i -H 'Content-Type: application/json' \
+              -H "Authorization: bearer PERSONAL_TOKEN" \
+              -X POST -d "{ \"query\": \"$script\"}" https://api.github.com/graphql
 
             
    
