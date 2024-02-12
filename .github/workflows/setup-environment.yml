@@ -12,7 +12,13 @@ jobs:
       - name: Create .env file
         run: |         
           echo "${{ secrets.GITHUB_TOKEN }}" > .env
-
+      - name: Make envfile
+        uses: ./
+        with:
+            envkey_DEBUG: false
+            envkey_SOME_API_KEY: "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"
+            envkey_SECRET_KEY: ${{ secrets.GITHUB_TOKEN }}
+            file_name: .env
 
 
           
