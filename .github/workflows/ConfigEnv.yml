@@ -1,22 +1,51 @@
-name: my workflow
+name: setup-environment example
 on:
-    workflow_dispatch:
-    push:
-
+  workflow_dispatch:
+  push:
+    branches: [ development, release-candidate ]
 jobs:
-  build:
+  Example:
+    name: Run example
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set env
-      run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
-    - name: Test
-      run: echo $GITHUB_SHA_SHORT
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Set env QA
-      run: echo "QA_ENVI=$(echo $QA_ENVI| cut -c 1-6)" >> $GITHUB_ENV
-      env: 
-         QA_ENVIRONMENT: QA_ENVI
+      - name: Load development vars
+        id: set_env_development
+        if: |
+          github.ref == 'refs/heads/development'
+        uses: ./.github/actions/setup-environment
+        with:
+          environment-config-file: "setup_dev.env"
+          section-name: "Dev Environment"
 
-    - name: Test QA ENVIRONMENT
-      run: echo $QA_ENVI
+      - name: Load release-candidate vars
+        id: set_env_release-candidate
+        if: |
+          github.ref == 'refs/heads/release-candidate'
+        uses: thgbrb/setup-environment@main
+        with:
+          environment-config-file: "setup_qa.env"
+          section-name: "QA Development"
+
+      - name: Workflow validation
+        if: |
+          steps.set_env_development.outputs.executed == false &&
+          steps.set_env_release-candidate.outputs.executed == false
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Workflow was trigger sucesslly but non env files was loaded.')
+
+      - name: Using setup-environment and microsoft;variable-substitution toghether we can do nice things :)
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: '**/appsettings.json'
+        env:
+          ConnectionStrings.Database: ${{ secrets.LOAD_CONNECTIONSTRING_FROM_GITHUB_SECRETS }}
+
+      - name: Dump appsettings.json
+        run: |
+          cat ${{ github.workspace }}/appsettings.json
+        shell: bash
