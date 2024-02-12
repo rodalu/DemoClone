@@ -8,7 +8,7 @@ jobs:
    Environments:
     runs-on: ubuntu=latest
     env:
-      Dev_Environment: Dev_Environment
+      Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
     steps:
        - name: Read ENV
          run: echo "Dev Environment ${{env.Dev_Environment}}">> $GITHUB_ENV
