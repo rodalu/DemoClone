@@ -22,5 +22,10 @@ jobs:
             envkey_SECRET_KEY: ${{ secrets.GITHUB_TOKEN }}
             file_name: .env
 
+      - name: Development_Environment
+        run: echo "$Development_Environment"
+        env:
+            $Development_Environment: Development Environment
+
 
           
