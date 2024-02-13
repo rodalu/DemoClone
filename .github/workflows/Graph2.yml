@@ -33,9 +33,9 @@ jobs:
          
          - name: Load files
            uses: ./
-           id: yamlfile
+           id: repositoryyaml
            with:
-              path: api.github.com/repos/sample/repository-static.query.yaml
+              path: https://api.github.com/repos/democlone/sample/repository-static.query.yaml
 
          - name: graphql read files
            run: |
