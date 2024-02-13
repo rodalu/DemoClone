@@ -84,19 +84,11 @@ jobs:
                 
          - name: Test Print Json Phyton
            run: |   
-                curl 'https://jsonplaceholder.typicode.com/users' \
+                curl 'https://jsonplaceholder.typicode.com' \
                 -X POST \
                 -H 'content-type: application/json' \
                 --data '{
-                  "query": "{ continents { email } }"
+                  "query": "{ users { email } }"
                 }' | python -m json.tool
 
-         - name: Output Result
-           run: |   
-                     curl 'https://jsonplaceholder.typicode.com/users' \
-                     -X POST \
-                     -H 'content-type: application/json' \
-                     --data '{
-                       "query": "{ continents { email } }"
-                     }' | $( curl -X GET https://github.com/rodalu/DemoClone/test.csv | jq .sha ) } " \
-                     https://github.com/rodalu/DemoClone/test.csv
+   
