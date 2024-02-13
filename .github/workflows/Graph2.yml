@@ -17,7 +17,7 @@ jobs:
               
          - name: Current Users Json
            run: |           
-              curl -X POST ttps://jsonplaceholder.typicode.com/users
+              curl -X POST https://jsonplaceholder.typicode.com/users
               -H "Content-type:application/json" 
               -d "{\"name\": \"Samwise Gamgee\", \"role\": \"gardener\"}"
               # -- url https://jsonplaceholder.typicode.com/users\  
