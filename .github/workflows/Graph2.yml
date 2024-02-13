@@ -16,9 +16,11 @@ jobs:
               -- url "https://api.github.com/octocat" \
               
          - name: Current Users Json
-           run: |   
-              curl --request GET \ 
-              -- url https://jsonplaceholder.typicode.com/users\  
+           run: |           
+              curl -X POST ttps://jsonplaceholder.typicode.com/users
+              -H "Content-type:application/json" 
+              -d "{\"name\": \"Samwise Gamgee\", \"role\": \"gardener\"}"
+              # -- url https://jsonplaceholder.typicode.com/users\  
 
          - name: Current Price Json BPI
            run: |   
