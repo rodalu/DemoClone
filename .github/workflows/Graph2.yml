@@ -24,10 +24,13 @@ jobs:
               # -- url https://jsonplaceholder.typicode.com/users\  
      
 
-         - name: Current Price Json BPI
+         - name: Current GraphQL
            run: |   
-             curl -D - "https://api.coindesk.com/v1/bpi/currentprice.json" -o /dev/null
-             9. Specifying a maximum tra 
+               curl -i -H 'Content-Type: application/json' 
+               -H "Authorization: bearer PERSONAL_TOKEN"
+               -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
+                https://api.github.com/graphql
+       
 
     
   check_graphql:
