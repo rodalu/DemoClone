@@ -59,7 +59,13 @@ jobs:
                  "query": "{ users { email } }"
                  }' | python -m json.tool
                        
-                       
+         - name: Check GraphQL Price
+           run: |   
+                 curl ' https://api.coindesk.com/v1/bpi/currentprice.json ' \
+                 -X POST \
+                 -H 'content-type: application/json' \
+                 --data '{
+                 "query": "{ time { chartName } }"          
 
   test_graphql:
     runs-on: ubuntu-latest
