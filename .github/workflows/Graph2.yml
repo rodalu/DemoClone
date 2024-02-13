@@ -62,7 +62,7 @@ jobs:
                   -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
                   https://api.github.com/graphql
 
-         - name: Current GraphQL
+         - name: Graphql Mutations
            run: |  
                 curl 'https://jsonplaceholder.typicode.com/users' \
                   -X POST \
