@@ -61,17 +61,19 @@ jobs:
                        
          - name: Check GraphQL Price
            run: |   
-                 curl ' https://api.coindesk.com/v1/bpi/currentprice.json ' \
-                 -X POST \
-                 -H 'content-type: application/json' \
-                 --data '{
-                 "query": "{ time { chartName } }"          
+                curl 'https://api.coindesk.com/v1/bpi/currentprice.json' \
+                -X POST \
+                -H 'Authorization: ${{secrets.GITHUB_TOKEN}}' \
+                -H 'content-type: application/json' \
+                --data '{
+                  "query": "{ users { email } }"
+                }'      
 
   test_graphql:
     runs-on: ubuntu-latest
     steps:  
          - uses: actions/checkout@v2  
-         - name: Current Query Users Json
+         - name: Current Query CurrentPrice Json
            run: |           
                 curl -H "Authorization: bearer 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" -X POST -d " \
                 { \
