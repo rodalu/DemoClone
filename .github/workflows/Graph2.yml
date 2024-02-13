@@ -67,7 +67,17 @@ jobs:
                 -H 'content-type: application/json' \
                 --data '{
                   "query": "{ users { email } }"
-                }'      
+                }'     
+                
+         - name: Check Graphql Mutations
+           run: |  
+                     curl 'https://jsonplaceholder.typicode.com/users' \
+                     -X POST \
+                     -H 'Authorization: Token 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' \
+                     -H 'content-type: application/json' \
+                     --data '{
+                       "query": "{ users { email } }"
+                     }'  
 
   test_graphql:
     runs-on: ubuntu-latest
@@ -81,15 +91,7 @@ jobs:
                   } \
                 " https://api.coindesk.com/v1/bpi/currentprice.json  
 
-         - name: Graphql Mutations
-           run: |  
-                curl 'https://jsonplaceholder.typicode.com/users' \
-                -X POST \
-                -H 'Authorization: Token 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' \
-                -H 'content-type: application/json' \
-                --data '{
-                  "query": "{ users { email } }"
-                }'                                  
+                                    
                        
          - name: Print GraphQL Mutation username and mail
            run: |   
@@ -121,10 +123,4 @@ jobs:
                  https://api.github.com/graphql
                
 
-         - name: 2 Mutation GraphQL QRY
-           run: | 
-               curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \
-               -H "Content-Type: application/json" \
-               -d '{"query": "mutation { createLabel(input: {repositoryId: \"<REPOSITORY_ID>\", name: \"bug\", color: \"d73a4a\"}) \
-                { label { id name } } addLabelsToLabelable(input: {labelableId: \"<ISSUE_ID>\", labelIds: [\"<LABEL_ID>\"]}) \
-                 { clientMutationId } }"}' https://api.github.com/graphql
+    
