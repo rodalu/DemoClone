@@ -63,7 +63,19 @@ jobs:
                 -v --trace-ascii 
                 --data '{
                   "query": "{ users { email } }"
-                }'       
+                }'   
+                
+                
+         - name: GET Graphql Mutations
+           run: |  
+                curl 'https://jsonplaceholder.typicode.com/users' \
+                -X GET \
+                -H 'Authorization: Token ${{secrets.GITHUB_TOKEN}}' \
+                -H 'content-type: application/json' \
+                -v --trace-ascii 
+                --data '{
+                  "query": "{ users { email } }"
+                }'  
                 
          - name: Print GraphQL Mutation username and mail
            run: |   
