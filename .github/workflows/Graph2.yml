@@ -78,8 +78,8 @@ jobs:
            run: |   
             curl --header "Content-Type: application/json" \
             --request POST \
-            --data '{"query":"query { medication ( where:{ _and: [ { diagnosis_code: {_in: [\"S00-T88\",\"T20-R73\"]}}, 
-            { price: {_lt: 150}}, { inventory: {_gt: 10}} ] } ) { id name diagnosis_code price inventory } }","variables":null}' \
-            https://hasura-graphql-test.herokuapp.com/v1alpha1/graphql
+            --data '{"query":"query { users ( where:{ _and: [ { diagnosis_code: {_in: [\"S00-T88\",\"T20-R73\"]}}, 
+            { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
+            https://jsonplaceholder.typicode.com/users
                 
    
