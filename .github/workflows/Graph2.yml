@@ -15,7 +15,13 @@ jobs:
               curl --request GET \
               -- url "https://api.github.com/octocat" \
               
-         
+         - name: Current Users Json
+           run: |   
+              curl --request GET \
+              -H "Content-type: application/json" \
+              -H "Accept: application/json" \       
+              -- url "https://jsonplaceholder.typicode.com/users" \  
+
          - name: Current Price Json BPI
            run: |   
              curl --request GET \
