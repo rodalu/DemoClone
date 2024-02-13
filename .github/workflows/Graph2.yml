@@ -84,7 +84,7 @@ jobs:
                 
          - name: Test Print Json Phyton
            run: |   
-                curl 'https://jsonplaceholder.typicode.com' \
+                curl 'https://jsonplaceholder.typicode.com/users' \
                 -X POST \
                 -H 'content-type: application/json' \
                 --data '{
