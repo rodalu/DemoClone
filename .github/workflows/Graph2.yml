@@ -113,12 +113,12 @@ jobs:
 
          - name: Test GraphQL QRY
            run: |   
-                curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \           
+                curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \  
+                X-Accepted-GitHub-Permissions: contents=read \       
                 -H "Content-Type: application/json" \
                 -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\")\
-                { name description primaryLanguage { name } } }"}' \  
-                X-Accepted-GitHub-Permissions: contents=read              
-                https://api.github.com/graphql
+                { name description primaryLanguage { name } } }"}' \                              
+                 https://api.github.com/graphql
                
 
          - name: 2 Mutation GraphQL QRY
