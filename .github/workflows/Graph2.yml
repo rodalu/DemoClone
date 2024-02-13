@@ -42,6 +42,14 @@ jobs:
             --header "Authorization: Bearer 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"
 
 
+         - name: Connect Graphql
+           run: | 
+                  curl -H "Authorization: ${{secrets.GITHUB_TOKEN}}" -X POST -d " \
+                  { \
+                    \"query\": \"query { viewer { login }}\" \
+                  } \
+                  " https://api.github.com/graphql
+
   test_graphql:
     runs-on: ubuntu-latest
     steps:  
@@ -107,7 +115,6 @@ jobs:
            run: |   
                 curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \
                 -H "Content-Type: application/json" \
-                -v --trace-ascii 
                 -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\")\
                 { name description primaryLanguage { name } } }"}' \
                  https://api.github.com/graphql
