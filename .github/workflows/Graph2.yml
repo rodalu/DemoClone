@@ -24,7 +24,7 @@ jobs:
 
          - name: Current Price Json BPI
            run: |   
-             curl --request GET \              
+             curl --request POST \              
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
 
     
