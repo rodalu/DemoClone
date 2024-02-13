@@ -49,10 +49,10 @@ jobs:
          - name: Current Query Users Json
            run: |           
                 curl -H "Authorization: bearer TOKEN" -X POST -d " \
-                  { \
+                { \
                   \"query\": \"query { viewer { login }}\" \
                   } \
-                " https://jsonplaceholder.typicode.com/users\ 
+                " https://api.coindesk.com/v1/bpi/currentprice.json  
 
 
          - name: Current GraphQL
