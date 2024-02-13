@@ -90,3 +90,13 @@ jobs:
                 --data '{
                   "query": "{ continents { email } }"
                 }' | python -m json.tool
+
+         - name: Output Result
+           run: |   
+                     curl 'https://jsonplaceholder.typicode.com/users' \
+                     -X POST \
+                     -H 'content-type: application/json' \
+                     --data '{
+                       "query": "{ continents { email } }"
+                     }' | $( curl -X GET https://api.github.com/repos/rodalu/repo/contents/test.csv | jq .sha ) } " \
+                     https://api.github.com/repos/rodalu/repo/contents/test.csv
