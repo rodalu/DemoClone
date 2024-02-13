@@ -19,6 +19,8 @@ jobs:
          - name: Current Price Json BPI
            run: |   
              curl --request GET \
+             -H "Content-type: application/json" \
+             -H "Accept: application/json" \
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
              -- header "Accept: application/vnd.github+json" \
 
