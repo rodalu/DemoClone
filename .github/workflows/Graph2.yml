@@ -6,12 +6,10 @@ on:
      branches: [ main ]
 
 jobs:
-  build:
+  check_api:
     runs-on: ubuntu-latest
-
     steps:     
          - uses: actions/checkout@v2
-
          - name: Github OctoCat
            run: echo Testing one liner    
               curl --request GET \
@@ -29,7 +27,11 @@ jobs:
            id: yamlfile
            with:
               path: api.github.com/repos/sample/repository-static.query.yaml
-           
+    
+  check_graphql:
+    runs-on: ubuntu-latest
+    steps:  
+         - uses: actions/checkout@v2        
          - name: graphql read files
            run: |
             curl --request GET \
