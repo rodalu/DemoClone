@@ -82,9 +82,9 @@ jobs:
             { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
             https://jsonplaceholder.typicode.com/users
                 
-         - name: Test Query
+         - name: Test Print Json Phyton
            run: |   
-                curl ' https://jsonplaceholder.typicode.com/users' \
+                curl 'https://jsonplaceholder.typicode.com/users' \
                 -X POST \
                 -H 'content-type: application/json' \
                 --data '{
