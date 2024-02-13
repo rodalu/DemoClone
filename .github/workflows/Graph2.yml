@@ -39,7 +39,7 @@ jobs:
             curl --request GET \
             --url "https://api.github.com/repos/democlone" \
             --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer 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"
+            --header "Authorization: Bearer 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"
 
 
   test_graphql:
@@ -48,7 +48,7 @@ jobs:
          - uses: actions/checkout@v2  
          - name: Current Query Users Json
            run: |           
-                curl -H "Authorization: bearer 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" -X POST -d " \
+                curl -H "Authorization: bearer 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" -X POST -d " \
                 { \
                   \"query\": \"query { viewer { login }}\" \
                   } \
@@ -58,7 +58,7 @@ jobs:
            run: |  
                 curl 'https://jsonplaceholder.typicode.com/users' \
                 -X POST \
-                -H 'Authorization: Token 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' \
+                -H 'Authorization: Token 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' \
                 -H 'content-type: application/json' \
                 --data '{
                   "query": "{ users { email } }"
@@ -101,7 +101,7 @@ jobs:
               
          - name: 2 Mutation GraphQL QRY
            run: | 
-               curl -X POST -H "Authorization: bearer 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" \
+               curl -X POST -H "Authorization: bearer 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" \
                -H "Content-Type: application/json" \
                -d '{"query": "mutation { createLabel(input: {repositoryId: \"<REPOSITORY_ID>\", name: \"bug\", color: \"d73a4a\"}) \
                 { label { id name } } addLabelsToLabelable(input: {labelableId: \"<ISSUE_ID>\", labelIds: [\"<LABEL_ID>\"]}) \
