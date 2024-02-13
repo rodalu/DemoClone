@@ -103,7 +103,7 @@ jobs:
                 "query": "{ users { username mail } }"
               }'  
 
-         - name: Test Query
+         - name: Test Query Users
            run: |   
             curl --header "Content-Type: application/json" \
             --request POST \
@@ -111,7 +111,7 @@ jobs:
             { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
             https://jsonplaceholder.typicode.com/users
         
-         - name: Test Query
+         - name: Test Query JSON File from REPO
            run: |   
               curl -i -H 'Content-Type: application/json' \
               -H "Authorization: ${{secrets.GITHUB_TOKEN}} " \
