@@ -61,15 +61,17 @@ jobs:
                   -H "Authorization: bearer PERSONAL_TOKEN"
                   -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
                   https://api.github.com/graphql
-                
 
          - name: Current GraphQL
-           run: |   
-                curl -g \
-                -X POST \
-                -H "Content-Type: application/json" \
-                -H "Authorization: Bearer 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" \
-                -d '{"query":"query{showCollection {items { name email username { https://jsonplaceholder.typicode.com/users }}}}"}' \
-                https://graphql.contentful.com/content/v1/spaces/mt0pmhki5db7
+           run: |  
+                curl 'https://jsonplaceholder.typicode.com/users' \
+                  -X POST \
+                  -H 'content-type: application/json' \
+                  --data '{
+                    "query":"mutation { createUser(name: \"Leanne Graham\") }"
+                  }'         
+                
+
+     
                 
    
