@@ -42,12 +42,12 @@ jobs:
             --header "Authorization: Bearer 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"
 
 
-    test_graphql:
-      runs-on: ubuntu-latest
-      steps:  
-           - uses: actions/checkout@v2  
-           - name: Current Users Json
-            run: |           
+  test_graphql:
+    runs-on: ubuntu-latest
+    steps:  
+         - uses: actions/checkout@v2  
+         - name: Current Users Json
+           run: |           
                 curl -X POST https://jsonplaceholder.typicode.com/users
                 -H "Content-type:application/json" 
                 --header "Accept: application/vnd.github+json" \
@@ -55,8 +55,8 @@ jobs:
                 # -- url https://jsonplaceholder.typicode.com/users\  
 
 
-           - name: Current GraphQL
-             run: |   
+         - name: Current GraphQL
+           run: |   
                   curl -i -H 'Content-Type: application/json' 
                   -H "Authorization: bearer PERSONAL_TOKEN"
                   -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
