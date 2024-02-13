@@ -19,6 +19,7 @@ jobs:
            run: |           
               curl -X POST https://jsonplaceholder.typicode.com/users
               -H "Content-type:application/json" 
+              --header "Accept: application/vnd.github+json" \
               -d "{\"id\": \"1\", \"name\": \"Bret\", \"email\": \"Sincere@april.biz\"}"
               # -- url https://jsonplaceholder.typicode.com/users\  
      
