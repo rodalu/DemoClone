@@ -19,7 +19,7 @@ jobs:
            run: |           
               curl -X POST https://jsonplaceholder.typicode.com/users
               -H "Content-type:application/json" 
-              -d "{\"name\": \"Bret\", \"email\": \"Sincere@april.biz\"}"
+              -d "{\"id\": \"1\", \"name\": \"Bret\", \"email\": \"Sincere@april.biz\"}"
               # -- url https://jsonplaceholder.typicode.com/users\  
      
 
