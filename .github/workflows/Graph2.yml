@@ -21,8 +21,9 @@ jobs:
              curl --request GET \
              -H "Content-type: application/json" \
              -H "Accept: application/json" \       
-              -- url "https://jsonplaceholder.typicode.com/users" \  
              -- header "Accept: application/vnd.github+json" \
+              -- url "https://jsonplaceholder.typicode.com/users" \  
+             
      #  -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
 
     
