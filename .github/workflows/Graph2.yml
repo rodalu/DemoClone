@@ -14,25 +14,15 @@ jobs:
            run: echo Testing one liner    
               curl --request GET \
               -- url "https://api.github.com/octocat" \
-              
-         - name: Current Users Json
-           run: |           
-              curl -X POST https://jsonplaceholder.typicode.com/users
-              -H "Content-type:application/json" 
-              --header "Accept: application/vnd.github+json" \
-              -d "{\"id\": \"1\", \"name\": \"Bret\", \"email\": \"Sincere@april.biz\"}"
-              # -- url https://jsonplaceholder.typicode.com/users\  
-     
 
-         - name: Current GraphQL
+         - name: Current Price Json BPI
            run: |   
-               curl -i -H 'Content-Type: application/json' 
-               -H "Authorization: bearer PERSONAL_TOKEN"
-               -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
-                https://api.github.com/graphql
-       
-
-    
+                   curl -L \
+                   -H "Accept: application/vnd.github+json" \
+                   -H "Authorization: ${{ secrets.GITHUB_TOKEN }} " \
+                   -H "X-GitHub-Api-Version: 2022-11-28" \
+                   https://api.coindesk.com/v1/bpi/currentprice.json  -o "outputfile1.txt"           
+   
   check_graphql:
     runs-on: ubuntu-latest
     steps:  
@@ -51,7 +41,27 @@ jobs:
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer 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"
 
-         
 
-   
+    test_graphql:
+      runs-on: ubuntu-latest
+      steps:  
+           - uses: actions/checkout@v2  
+           - name: Current Users Json
+            run: |           
+                curl -X POST https://jsonplaceholder.typicode.com/users
+                -H "Content-type:application/json" 
+                --header "Accept: application/vnd.github+json" \
+                -d "{\"id\": \"1\", \"name\": \"Bret\", \"email\": \"Sincere@april.biz\"}"
+                # -- url https://jsonplaceholder.typicode.com/users\  
+
+
+           - name: Current GraphQL
+             run: |   
+                  curl -i -H 'Content-Type: application/json' 
+                  -H "Authorization: bearer PERSONAL_TOKEN"
+                  -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
+                  https://api.github.com/graphql
+                
+
+          
    
