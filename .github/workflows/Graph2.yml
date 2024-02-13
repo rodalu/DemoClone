@@ -60,6 +60,7 @@ jobs:
                 -X POST \
                 -H 'Authorization: Token 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' \
                 -H 'content-type: application/json' \
+                -v --trace-ascii 
                 --data '{
                   "query": "{ users { email } }"
                 }'       
@@ -95,6 +96,7 @@ jobs:
            run: |   
                 curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \
                 -H "Content-Type: application/json" \
+                -v --trace-ascii 
                 -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\")\
                 { name description primaryLanguage { name } } }"}' \
                  https://api.github.com/graphql
