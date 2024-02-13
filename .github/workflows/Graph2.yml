@@ -66,10 +66,13 @@ jobs:
                 
          - name: Current GraphQL
            run: |   
-                       curl -i -H 'Content-Type: application/json' 
-                       -H "Authorization: bearer PERSONAL_TOKEN"
-                       -X POST -d '{"query": "query {repository(owner: \"rodalu\", name: \"DEMOCLONE\") {description}}"}'
-                       https://api.github.com/graphql
+                curl 'https://jsonplaceholder.typicode.com/users' \
+                -X POST \
+                -H 'Authorization: Token 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' \
+                -H 'content-type: application/json' \
+                --data '{
+                  "query": "{ users { email  username} }"
+                }'    
      
                 
    
