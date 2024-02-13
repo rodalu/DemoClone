@@ -5,16 +5,23 @@ on:
   push:
 
 jobs: 
-   Environments:
-    runs-on: ubuntu=latest
-    env:
-      Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
-    steps:
-       - name: Read ENV
-         run: echo "Dev Environment ${{env.Dev_Environment}}">> $GITHUB_ENV
-
-       - name: Test ENV
-         run : |
+   environments:
+      name: Setup Environment 
+      runs-on: ubuntu=latest
+      env:
+        Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
+      steps:
+        - name: Read ENV
+          run: echo "Dev Environment ${{env.Dev_Environment}}">> $GITHUB_ENV
+      
+   test_environment:
+      name: Test Env
+      runs-on: ubuntu=latest
+      env:
+        Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
+      steps:
+         - name: Test ENV
+           run : |
               echo Dev_Environment = ${{env.Dev_Environment}}
               echo test1 vars as Dev_Environment = ${{env.Dev_Environment}}
 
