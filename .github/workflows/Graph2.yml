@@ -84,10 +84,10 @@ jobs:
                 }'   
                 
                 
-         - name: GET Graphql Mutations
+         - name: POST Graphql Mutations
            run: |  
                 curl 'https://jsonplaceholder.typicode.com/users' \
-                -X GET \
+                -X POST \
                 -H 'Authorization: Token ${{secrets.GITHUB_TOKEN}}' \
                 -H 'content-type: application/json' \
                 -v --trace-ascii 
