@@ -91,4 +91,15 @@ jobs:
                   "query": "{ users { email } }"
                 }' | python -m json.tool
 
-   
+         - name: Test GraphQL QRY
+           run: |   
+              curl -X POST -H "Authorization: bearer <TOKEN>" -H "Content-Type: application/json" 
+              -d '{"query": "query { repository(owner:\"octocat\", name:\"hello-world\")
+              { name description primaryLanguage { name } } }"}' https://api.github.com/graphql
+              
+         - name: 2 Mutation GraphQL QRY
+           run: | 
+               curl -X POST -H "Authorization: bearer <TOKEN>" -H "Content-Type: application/json"
+               -d '{"query": "mutation { createLabel(input: {repositoryId: \"<REPOSITORY_ID>\", name: \"bug\", color: \"d73a4a\"})
+                { label { id name } } addLabelsToLabelable(input: {labelableId: \"<ISSUE_ID>\", labelIds: [\"<LABEL_ID>\"]})
+                 { clientMutationId } }"}' https://api.github.com/graphql
