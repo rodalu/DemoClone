@@ -93,7 +93,7 @@ jobs:
 
          - name: Test GraphQL QRY
            run: |   
-                curl -X POST -H "Authorization: bearer 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" \
+                curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \
                 -H "Content-Type: application/json" \
                 -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\")\
                 { name description primaryLanguage { name } } }"}' \
@@ -101,7 +101,7 @@ jobs:
               
          - name: 2 Mutation GraphQL QRY
            run: | 
-               curl -X POST -H "Authorization: bearer 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" \
+               curl -X POST -H "Authorization: bearer ${{secrets.GITHUB_TOKEN}}" \
                -H "Content-Type: application/json" \
                -d '{"query": "mutation { createLabel(input: {repositoryId: \"<REPOSITORY_ID>\", name: \"bug\", color: \"d73a4a\"}) \
                 { label { id name } } addLabelsToLabelable(input: {labelableId: \"<ISSUE_ID>\", labelIds: [\"<LABEL_ID>\"]}) \
