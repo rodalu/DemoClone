@@ -64,7 +64,7 @@ jobs:
                   "query": "{ users { email } }"
                 }'       
                 
-         - name: Print GraphQL Mutation 
+         - name: Print GraphQL Mutation username and mail
            run: |   
               curl 'https://jsonplaceholder.typicode.com/users' \
               -X POST \
@@ -74,7 +74,7 @@ jobs:
                 "query": "{ users { username mail } }"
               }'  
 
-         - name: Print GraphQL Mutation 
+         - name: Test Query
            run: |   
             curl --header "Content-Type: application/json" \
             --request POST \
@@ -82,4 +82,11 @@ jobs:
             { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
             https://jsonplaceholder.typicode.com/users
                 
-   
+         - name: Test Query
+           run: |   
+                curl ' https://jsonplaceholder.typicode.com/users' \
+                -X POST \
+                -H 'content-type: application/json' \
+                --data '{
+                  "query": "{ continents { email } }"
+                }' | python -m json.tool
