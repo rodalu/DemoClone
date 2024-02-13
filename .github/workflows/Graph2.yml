@@ -17,9 +17,8 @@ jobs:
               
          - name: Current Users Json
            run: |   
-              curl --request GET \
-              -H "Content-type: application/json" \
-              -H "Accept: application/json" \       
+              curl --request GET \ 
+              -- header "Accept: application/vnd.github+json" \     
               -- url "https://jsonplaceholder.typicode.com/users" \  
 
          - name: Current Price Json BPI
