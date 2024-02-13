@@ -24,8 +24,8 @@ jobs:
 
          - name: Current Price Json BPI
            run: |   
-             curl --request POST \              
-             -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
+             curl -D - "https://api.coindesk.com/v1/bpi/currentprice.json" -o /dev/null
+             9. Specifying a maximum tra 
 
     
   check_graphql:
