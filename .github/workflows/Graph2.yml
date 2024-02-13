@@ -110,17 +110,14 @@ jobs:
             --data '{"query":"query { users ( where:{ _and: [ { diagnosis_code: {_in: [\"S00-T88\",\"T20-R73\"]}}, 
             { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
             https://jsonplaceholder.typicode.com/users
-                
-
-
-         - name: Test GraphQL QRY
+        
+         - name: Test Query
            run: |   
-                curl -X POST -H "Authorization: ${{secrets.GITHUB_TOKEN}}" \  
-                X-Accepted-GitHub-Permissions: contents=read \       
-                -H "Content-Type: application/json" \
-                -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\")\
-                { name description primaryLanguage { name } } }"}' \                              
-                 https://api.github.com/graphql
+              curl -i -H 'Content-Type: application/json' \
+              -H "Authorization: ${{secrets.GITHUB_TOKEN}} " \
+              -X POST -d "{ \"query\": \"$script\"}" https://api.github.com/graphql
+
+
                
 
     
