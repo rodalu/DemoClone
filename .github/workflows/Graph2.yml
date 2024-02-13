@@ -24,16 +24,19 @@ jobs:
              -- url "https://api.coindesk.com/v1/bpi/currentprice.json" \  
              -- header "Accept: application/vnd.github+json" \
 
+
+    
+  check_graphql:
+    runs-on: ubuntu-latest
+    steps:  
+         - uses: actions/checkout@v2  
+         
          - name: Load files
            uses: ./
            id: yamlfile
            with:
               path: api.github.com/repos/sample/repository-static.query.yaml
-    
-  check_graphql:
-    runs-on: ubuntu-latest
-    steps:  
-         - uses: actions/checkout@v2        
+
          - name: graphql read files
            run: |
             curl --request GET \
