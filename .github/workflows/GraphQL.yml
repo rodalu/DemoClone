@@ -23,7 +23,7 @@ jobs:
         
          - name: Test Repo graphql Query
            run: |   
-              curl -H "Authorization: ${{secrets.DEMO_TOKEN}}" -X POST -d " \
+              curl -H "Authorization: ${{secrets.My_TOKEN}}" -X POST -d " \
               { \
                 \"query\": \"query { viewer { login }}\" \
               } \
