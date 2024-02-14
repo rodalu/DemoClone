@@ -1,4 +1,4 @@
-name: GraphAPI
+name: GraphQL_ENDPOINT
 
 on:
    workflow_dispatch:
@@ -23,9 +23,11 @@ jobs:
         
          - name: Test Query JSON File from REPO
            run: |   
-              curl -i -H 'Content-Type: application/json' \
-              -H "Authorization: ${{secrets.GITHUB_TOKEN}} " \
-              -X POST -d "{ \"query\": \"$script\"}" https://api.github.com/graphql
+              curl -H "Authorization: 'bearer' + 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 " -X POST -d " \
+              { \
+                \"query\": \"query { viewer { login }}\" \
+              } \
+              " https://api.github.com/graphql
 
               
   graphqltestquery:
