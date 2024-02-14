@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
          - uses: actions/checkout@v2  
-         - name: Test Sample
+         - name: Repo GraphQL
            run: |           
             curl -X POST -H "Authorization: 'bearer ' + ${{secrets.PERSONAL_TOKEN}}" \
             -H "Content-Type: application/json" \
