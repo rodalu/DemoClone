@@ -23,7 +23,7 @@ jobs:
         
          - name: Test Repo graphql Query
            run: |   
-              curl -H "Authorization: ${{secrets.My_TOKEN}}" -X POST -d " \
+              curl -H "Authorization: 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" -X POST -d " \
               { \
                 \"query\": \"query { viewer { login }}\" \
               } \
@@ -36,7 +36,7 @@ jobs:
          - uses: actions/checkout@v2  
          - name: Repo GraphQL
            run: |           
-            curl -X POST -H "'Authorization': 'bearer' + ${{secrets.DEMO_TOKEN}}" \
+            curl -X POST -H "'Authorization': 'bearer' + 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" \
             -H "Content-Type: application/json" \
             -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\") { name description primaryLanguage { name } } }"} '\
              https://api.github.com/graphql
