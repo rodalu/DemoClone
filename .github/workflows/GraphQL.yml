@@ -36,7 +36,7 @@ jobs:
          - uses: actions/checkout@v2  
          - name: Repo GraphQL
            run: |           
-            curl -X POST -H "Authorization: ${{secrets.PERSONAL_TOKEN}}" \
+            curl -X POST -H "'Authorization': 'bearer' + ${{secrets.PERSONAL_TOKEN}}" \
             -H "Content-Type: application/json" \
             -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\") { name description primaryLanguage { name } } }"} '\
              https://api.github.com/graphql
