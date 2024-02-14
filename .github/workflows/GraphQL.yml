@@ -7,7 +7,7 @@ on:
  
 
 jobs:
-  build:
+  api_graphqlquery:
     runs-on: ubuntu-latest
 
     steps:     
@@ -21,7 +21,7 @@ jobs:
             { price: {_lt: 150}}, { users: {_gt: 10}} ] } ) { email, id } }","variables":null}' \
             https://jsonplaceholder.typicode.com/users
         
-         - name: Test Query JSON File from REPO
+         - name: Test Repo graphql Query
            run: |   
               curl -H "Authorization: ${{secrets.PERSONAL_TOKEN}}" -X POST -d " \
               { \
@@ -38,5 +38,5 @@ jobs:
            run: |           
             curl -X POST -H "Authorization: 'bearer ' + ${{secrets.PERSONAL_TOKEN}}" \
             -H "Content-Type: application/json" \
-            -d '{"query": "query { repository(owner:\"octocat\", name:\"hello-world\") { name description primaryLanguage { name } } }"} '\
+            -d '{"query": "query { repository(owner:\"rodalu\", name:\"hello-world\") { name description primaryLanguage { name } } }"} '\
              https://api.github.com/graphql
