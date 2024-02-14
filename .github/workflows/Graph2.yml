@@ -117,6 +117,19 @@ jobs:
               -H "Authorization: ${{secrets.GITHUB_TOKEN}} " \
               -X POST -d "{ \"query\": \"$script\"}" https://api.github.com/graphql
 
+              
+  graphqltestquery:
+    runs-on: ubuntu-latest
+    steps:  
+         - uses: actions/checkout@v2  
+         - name: Test Sample
+           run: |           
+            curl -X POST -H "Authorization: ${{secrets.GITHUB_TOKEN}}" \
+            -H "Content-Type: application/json" \
+            -d '{"query": "query { repository(owner:\"octocat\", name:\"hello-world\") { name description primaryLanguage { name } } }"} '\
+             https://api.github.com/graphql
+
+
 
                
 
