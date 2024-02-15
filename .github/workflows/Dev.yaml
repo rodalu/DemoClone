@@ -1,23 +1,17 @@
-name: Dev Setup
+name: DEV
 
 on:
    workflow_dispatch:
    push: 
+     branches: [ main ]
 
 jobs:
-  build:
+  check_api:
     runs-on: ubuntu-latest
-    env:
-        DEV_APP: ${{ vars.DEV_APP }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Read Variable
-      run: echo "Add DEv Environment ${{ env.DEV_APP }}"
-    - name: Set env
-      run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
-    - name: Test
-      run: echo $GITHUB_SHA_SHORT
-    - name: Set DEV_env
-      run: echo "DEV_ENVI = $(echo $DEV_ENVI | cut -c 1-9)" >> $GITHUB_ENV
-    - name: Test DEV
-      run: echo $EV_ENVI
+        - shell: pwsh
+          env:
+            SUPER_SECRET: ${{ secrets.PERSONAL_TOKEN }}
+          run: |
+            example-command "$env:SUPER_SECRET"
+
