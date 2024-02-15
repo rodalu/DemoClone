@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+        name: production
+        url: https://github.com/rodalu/DemoClone
     steps:
     - uses: actions/checkout@v2
     - name: Set env
