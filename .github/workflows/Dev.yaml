@@ -7,11 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-        name: production
-        url: https://github.com/rodalu/DemoClone
+    env:
+        DEV_APP: ${{ vars.DEV_APP }}
     steps:
     - uses: actions/checkout@v2
+    - name: Read Variable
+      run: echo "Add DEv Environment ${{ env.DEV_APP }}"
     - name: Set env
       run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
     - name: Test
