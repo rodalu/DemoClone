@@ -13,3 +13,7 @@ jobs:
       run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
     - name: Test
       run: echo $GITHUB_SHA_SHORT
+    - name: Set DEV_env
+      run: echo "DEV_ENVI = $(echo $DEV_ENVI | cut -c 1-9)" >> $GITHUB_ENV
+    - name: Test DEV
+      run: echo $EV_ENVI
