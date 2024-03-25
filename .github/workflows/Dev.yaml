@@ -5,23 +5,22 @@ on:
   push:
   workflow_dispatch:
      
-  
 jobs:
-  build:
-    permissions: # Read more at : https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
-      contents: write
-    name: Create Branch
+  create-branch:
+    name: "Feature/api-code-change"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Set Branch Name
+        id: set-branch-name
+        run: |
+          # Generate a dynamic branch name based on the current date and time
+          branch_name="dynamic-branch-$(date +'%Y%m%d%H%M%S')"
+          echo "::set-output name=branch_name::$branch_name"
+      - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Create Branch
-        id: create_branch
-        uses: lablnet/create-branch-from-tag@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ feature/api-code-change }}         
-          owner: ${{ github.repository_owner }} 
-          repo: ${{ github.event.repository.name }}
-
+        run: |
+          # Retrieve the branch name from the previous step's output
+          branch_name=${{ steps.set-branch-name.outputs.branch_name }}
+          git checkout -b $branch_name
+          git push --set-upstream origin $branch_name
