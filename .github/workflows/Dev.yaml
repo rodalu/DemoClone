@@ -15,7 +15,7 @@ jobs:
           target-branch: main
           force: false
       - name: Mirror to "Feature/api-code-change"
-        uses: rodalu/mirror-branch@v1
+        uses: rodalu/DemoClone@v1
         with:
           target-branch: main
           force: false
