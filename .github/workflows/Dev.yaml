@@ -9,13 +9,13 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      - name: Mirror to "master"
-        uses: zofrex/mirror-branch@v1
-        with:
-          target-branch: master
-          force: false
       - name: Mirror to "main"
-        uses: zofrex/mirror-branch@v1
+        uses: rodalu/mirror-branch@v1
+        with:
+          target-branch: main
+          force: false
+      - name: Mirror to "Feature/api-code-change"
+        uses: rodalu/mirror-branch@v1
         with:
           target-branch: main
           force: false
