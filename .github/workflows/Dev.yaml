@@ -1,11 +1,11 @@
 name: DEV
 
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
+  push:
+  workflow_dispatch:
+     
+  
 jobs:
   build:
     permissions: # Read more at : https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
