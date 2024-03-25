@@ -6,21 +6,16 @@ on:
   workflow_dispatch:
      
 jobs:
-  create-branch:
-    name: "Feature/api-code-change"
+  mirror:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Branch Name
-        id: set-branch-name
-        run: |
-          # Generate a dynamic branch name based on the current date and time
-          branch_name="dynamic-branch-$(date +'%Y%m%d%H%M%S')"
-          echo "::set-output name=branch_name::$branch_name"
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Create Branch
-        run: |
-          # Retrieve the branch name from the previous step's output
-          branch_name=${{ steps.set-branch-name.outputs.branch_name }}
-          git checkout -b $branch_name
-          git push --set-upstream origin $branch_name
+      - name: Mirror to "master"
+        uses: zofrex/mirror-branch@v1
+        with:
+          target-branch: master
+          force: false
+      - name: Mirror to "main"
+        uses: zofrex/mirror-branch@v1
+        with:
+          target-branch: main
+          force: false
