@@ -6,8 +6,6 @@ on:
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
-name: Create Branch
-
 jobs:
   build:
     permissions: # Read more at : https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
