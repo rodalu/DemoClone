@@ -13,4 +13,6 @@ jobs:
       uses: actions/checkout@v2
     - name: git new branch
       run: |
+           git checkout main
+           git fetch origin 
            git checkout -b "Feature/api-code-changes
