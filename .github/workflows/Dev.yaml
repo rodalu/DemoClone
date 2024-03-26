@@ -9,8 +9,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: Copy To Branches Action
-        uses: rodalu/DemoClone@v1
+        uses: rodalu/DemoClone@main
         env:
           key: main
-          exclude: work 99_target
+          exclude: feature/api-code-change
           files: Dev.yaml
