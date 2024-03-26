@@ -5,7 +5,9 @@ jobs:
   copy-to-branches:
     runs-on: ubuntu-latest
     steps:
+     - name: GitHub Checkout
+       run: |
+           git checkout -b main
      - name: GitHub Create Branch
        run: |
-           echo git branch testbranch
-          
+            git branch testbranch        
