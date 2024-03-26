@@ -1,18 +1,16 @@
-name: DEV
-
+name: Copy To Branches
 on:
-
-  push:
   workflow_dispatch:
-     
 jobs:
-  mirror:
+  copy-to-branches:
     runs-on: ubuntu-latest
     steps:
-    - name: Git checkout
-      uses: actions/checkout@v2
-    - name: git new branch
-      run: |
-           git checkout main
-           git fetch origin 
-           git checkout -b "Feature/api-code-changes
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Copy To Branches Action
+        uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          exclude: work 99_target
+          files: README.md
