@@ -9,6 +9,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Copy To Branches Action
-        uses: rodalu/copy-to-branches@v1.2
+        uses: rodalu/DemoClone@main
         env:
           key: main
