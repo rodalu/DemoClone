@@ -13,4 +13,4 @@ jobs:
         env:
           key: main
           exclude: work 99_target
-          files: README.md
+          files: Dev.yaml
