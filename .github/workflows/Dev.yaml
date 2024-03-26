@@ -7,7 +7,7 @@ jobs:
     steps:
      - name: GitHub Checkout
        run: |
-           git checkout main
+          echo $ git checkout main
      - name: GitHub Create Branch
        run: |
-            git branch testbranch        
+           echo $ git branch testbranch        
