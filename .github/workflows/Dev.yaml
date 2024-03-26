@@ -5,17 +5,7 @@ jobs:
   copy-to-branches:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Copy To Branches Action
-        uses: rodalu/DemoClone@main
-        env:
-          key: main
-          exclude: feature/api-code-change
-          files: Dev.yaml
-
-      - name: GitHub Create Branch
-        run: |
+     - name: GitHub Create Branch
+       run: |
            echo git branch feature/api-code-changes
           
