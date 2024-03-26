@@ -5,9 +5,10 @@ jobs:
   copy-to-branches:
     runs-on: ubuntu-latest
     steps:
-     - name: GitHub Checkout
-       run: |
-          echo 'git checkout testbranch'
-     - name: GitHub Create Branch
-       run: |
-           echo "git branch testbranch "       
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Copy To Branches Action
+        uses: rodalu/copy-to-branches@v1.2
+        env:
+          key: main
