@@ -5,11 +5,8 @@ jobs:
   copy-to-branches:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Copy To Branches Action
-        uses: rodalu/DemoClone@main
-        env:
-          branches: Testbranch
-          key: main
+    - uses: action/checkout@v1
+    - name: Create Branch
+      run: |
+          echo 'git branch testbranch'
+        
