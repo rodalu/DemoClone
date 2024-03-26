@@ -8,5 +8,5 @@ jobs:
     - uses: action/checkout@v1
     - name: Create Branch
       run: |
-          echo 'git branch testbranch'
+          echo '$ git branch testbranch'
         
